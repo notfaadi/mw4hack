@@ -1,0 +1,42 @@
+---
+import { CHECKOUT, CHECKOUT_SLUGS, type CheckoutProduct } from '../../config/checkout';
+
+const slugToProduct = Object.fromEntries(
+  Object.entries(CHECKOUT_SLUGS).map(([product, slug]) => [slug, product as CheckoutProduct]),
+);
+
+export function getStaticPaths() {
+  return Object.values(CHECKOUT_SLUGS).map((slug) => ({ params: { slug } }));
+}
+
+const slug = Astro.params.slug!;
+const product = slugToProduct[slug];
+const target = product ? CHECKOUT[product] : CHECKOUT.mw4;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting to checkout…</title>
+    <link rel="canonical" href={target} />
+  </head>
+  <body>
+    <p>Redirecting… <a id="checkout-fallback" href={target}>Continue to checkout</a></p>
+    <script define:vars={{ target }}>
+      (() => {
+        const raw = window.location.search.startsWith('?')
+          ? window.location.search.slice(1)
+          : '';
+        let url = target;
+        if (raw) {
+          url += (target.includes('?') ? '&' : '?') + raw;
+        }
+        const link = document.getElementById('checkout-fallback');
+        if (link) link.setAttribute('href', url);
+        window.location.replace(url);
+      })();
+    </script>
+  </body>
+</html>

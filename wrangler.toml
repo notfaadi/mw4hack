@@ -1,8 +1,11 @@
 name = "mw4hack"
+main = "worker.mjs"
 compatibility_date = "2025-01-01"
 
 # Static Astro output — do not run Wrangler's Astro auto-setup (no adapter rebuild).
 [assets]
 directory = "./dist"
+binding = "ASSETS"
 not_found_handling = "404-page"
 html_handling = "auto-trailing-slash"
+run_worker_first = [ "/go", "/go/*" ]

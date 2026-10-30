@@ -11,8 +11,6 @@ export const CHECKOUT_URLS = {
 export const CHECKOUT_PATH_REDIRECTS = new Map([
   ['/go/mw4', CHECKOUT_URLS.mw4],
   ['/go/mw4/', CHECKOUT_URLS.mw4],
-  ['/go/mw4', CHECKOUT_URLS.mw4],
-  ['/go/mw4/', CHECKOUT_URLS.mw4],
   ['/go/cloud-dma', CHECKOUT_URLS.cloudDma],
   ['/go/cloud-dma/', CHECKOUT_URLS.cloudDma],
   ['/go/skin-changer', CHECKOUT_URLS.skinChanger],
