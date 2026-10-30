@@ -1,8 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveDistRoot } from './resolve-dist-root.mjs';
 
 const root = process.cwd();
-const dist = path.join(root, 'dist');
+const dist = resolveDistRoot();
 const key = process.env.INDEXNOW_KEY?.trim();
 const host = process.env.INDEXNOW_HOST?.trim() || 'localhost:4321';
 

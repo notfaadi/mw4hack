@@ -1,12 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveDistRoot, siteOrigin } from './resolve-dist-root.mjs';
 
-const root = process.cwd();
-const dist = path.join(root, 'dist');
+const dist = resolveDistRoot();
 const source = path.join(dist, 'sitemap-0.xml');
 
 if (!fs.existsSync(source)) {
-  console.error('finalize-sitemap: dist/sitemap-0.xml not found — run astro build first.');
+  const indexOnly = path.join(dist, 'sitemap-index.xml');
+  if (fs.existsSync(indexOnly)) {
+    console.warn(
+      'finalize-sitemap: sitemap-0.xml missing; keeping Astro sitemap-index.xml only.',
+    );
+    process.exit(0);
+  }
+  console.error('finalize-sitemap: no sitemap found under dist/ or dist/client/.');
   process.exit(1);
 }
 
@@ -35,13 +42,14 @@ function formatUrlset(xml) {
     .replace(/<\/priority>/g, '</priority>\n');
 }
 
-const formatted = formatUrlset(raw);
+const origin = siteOrigin();
+const formatted = formatUrlset(raw.replaceAll('http://localhost:4321', origin));
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://localhost:4321/sitemap.xml</loc>
+    <loc>${origin}/sitemap.xml</loc>
     <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
   </sitemap>
 </sitemapindex>
@@ -49,4 +57,4 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
-console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml`);
+console.log(`Sitemap finalized: ${urlCount} URLs → ${path.relative(process.cwd(), dist)}/sitemap.xml`);

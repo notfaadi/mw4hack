@@ -13,8 +13,6 @@ export default defineConfig({
     '/cheats/pro/': '/products/mw4-cheats/',
     '/cheats/elite/': '/products/mw4-cheats/elite/',
     '/cheats/compare/': '/blog/mw4-lite-vs-pro/',
-    '/products/mw4-cheats/': '/products/mw4-cheats/',
-    '/products/mw4-cheats/elite/': '/products/mw4-cheats/elite/',
     '/contact/': '/support/',
     '/products/mw4-cheats/unlock-all/': '/products/mw4-cheats/skin-changer/',
   },

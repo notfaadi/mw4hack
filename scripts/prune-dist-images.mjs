@@ -1,8 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveDistRoot } from './resolve-dist-root.mjs';
 
 /** Drop source PNGs from dist — pages serve WebP variants only. */
-const distImages = path.resolve('dist/images');
+const distRoot = resolveDistRoot();
+const distImages = path.join(distRoot, 'images');
 let removed = 0;
 let bytes = 0;
 

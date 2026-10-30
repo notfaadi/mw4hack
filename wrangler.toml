@@ -1,0 +1,8 @@
+name = "mw4hack"
+compatibility_date = "2025-01-01"
+
+# Static Astro output — do not run Wrangler's Astro auto-setup (no adapter rebuild).
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
