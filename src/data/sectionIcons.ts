@@ -1,6 +1,7 @@
 import type { IconName } from '../components/icons/types';
 
 export const featureIcons: Record<string, IconName> = {
+  'Cloud DMA': 'dmaHardware',
   Scripts: 'stepCrosshair',
   'Wallhack / ESP': 'featureEsp',
   'Tactical Radar': 'featureRadar',
@@ -42,26 +43,32 @@ export const blogTagIcons: Record<string, IconName> = {
   Troubleshooting: 'alert',
 };
 
-export const heroStatusPills: { icon: IconName; label: string }[] = [
-  { icon: 'espActive', label: 'ESP Active' },
-  { icon: 'radarOnline', label: 'Radar Online' },
-  { icon: 'seasonBuild', label: 'Season Build' },
-  { icon: 'undetected', label: 'Undetected' },
-  { icon: 'softAim', label: 'Soft Aim Ready' },
-  { icon: 'noRecoil', label: 'No Recoil' },
-  { icon: 'streamProof', label: 'Stream Proof' },
-  { icon: 'lootEsp', label: 'Loot ESP' },
-  { icon: 'skeletonEsp', label: 'Skeleton ESP' },
-  { icon: 'uavRadar', label: 'UAV Radar' },
+/** Homepage hero ticker — large outline pills (full-width marquee). */
+export const heroMarqueePills: { icon: IconName; label: string }[] = [
+  { icon: 'compareCloudBackup', label: 'Config cloud sync' },
+  { icon: 'sidebarHwid', label: 'HWID reset' },
+  { icon: 'faqExternalLoader', label: 'External loader' },
+  { icon: 'featureAimbot', label: 'Aimbot' },
+  { icon: 'softAim', label: 'Silent aimbot' },
+  { icon: 'featureEsp', label: 'ESP' },
   { icon: 'mapHack', label: 'Wallhack' },
+  { icon: 'noRecoil', label: 'No recoil' },
+  { icon: 'undetected', label: 'Undetected' },
+  { icon: 'streamProof', label: 'Stream proof' },
+  { icon: 'triggerBot', label: 'Trigger bot' },
+  { icon: 'featureUtilitySuite', label: 'Menu toggles' },
   { icon: 'support247', label: '24/7 Support' },
-  { icon: 'instantDelivery', label: 'Instant Delivery' },
-  { icon: 'MultiplayerSafe', label: 'Multiplayer Safe' },
-  { icon: 'triggerBot', label: 'Trigger Bot' },
-  { icon: 'boneSelect', label: 'Bone Select' },
   { icon: 'liveStatus', label: 'Live Status' },
-  { icon: 'autoUpdates', label: 'Auto Updates' },
+  { icon: 'reqWindows', label: 'Windows 10 & 11' },
+  { icon: 'seasonBuild', label: 'Modern Warfare 4' },
+  { icon: 'whyShield', label: 'Ricochet-aware client' },
+  { icon: 'autoUpdates', label: 'Auto updates' },
+  { icon: 'radarOnline', label: 'Tactical radar' },
+  { icon: 'lootEsp', label: 'Loot ESP' },
 ];
+
+/** @deprecated Use heroMarqueePills on the homepage ticker. */
+export const heroStatusPills = heroMarqueePills;
 
 export const heroStatIcons: IconName[] = [
   'heroStatStream',

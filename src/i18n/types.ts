@@ -22,6 +22,9 @@ export interface FeatureItem {
   bullets?: string[];
   /** Tailwind classes: sm:col-span-2 stack; lg: explicit col/row start + span */
   bento?: string;
+  /** Optional CTA (e.g. scroll to products) on the feature card footer */
+  viewLabel?: string;
+  viewScrollTarget?: string;
 }
 
 export interface TierCard {
@@ -104,6 +107,7 @@ export interface Translations {
     titleLine2: string;
     subtitle: string;
     ctaPrimary: string;
+    ctaCloudDma: string;
     ctaDiscord: string;
     modesLabel: string;
     modes: string[];
@@ -173,7 +177,6 @@ export interface Translations {
     emptyFilter: string;
     viewAll: string;
     read: string;
-    items: BlogPost[];
   };
   toolkit: {
     eyebrow: string;

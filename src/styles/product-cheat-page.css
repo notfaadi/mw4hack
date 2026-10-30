@@ -22,6 +22,10 @@
   margin-top: 4.75rem;
 }
 
+#products + .product-how-to-use {
+  margin-top: -0.5rem;
+}
+
 @media (min-width: 768px) {
   .products-carousel {
     --products-carousel-gap: 1.25rem;
@@ -410,6 +414,27 @@ html:not(.dark) .product-feature-check .icon-app:hover {
   pointer-events: none;
   background: linear-gradient(to bottom, transparent, var(--card));
   content: '';
+}
+
+/* Elite — How to Use MW4 accordion (under hero) */
+.product-how-to-use__item[data-slot='accordion-item'] {
+  border: none;
+}
+
+.product-how-to-use__trigger[data-slot='accordion-trigger'] {
+  gap: 1rem;
+}
+
+.product-how-to-use__label {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.25rem;
+  background: color-mix(in oklch, var(--primary) 22%, oklch(0.22 0.04 264));
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--primary) 35%, transparent);
+}
+
+.product-how-to-use__content[data-slot='accordion-content'] > div {
+  padding-bottom: 0.25rem;
 }
 
 @media (max-width: 1000px) {

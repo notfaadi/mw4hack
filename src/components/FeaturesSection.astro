@@ -4,6 +4,7 @@ import { featureIcons } from '../data/sectionIcons';
 import SectionHeader from './SectionHeader.astro';
 import Icon from './icons/Icon.astro';
 import { Badge } from '@/components/starwind/badge';
+import { Button } from '@/components/starwind/button';
 
 const s = t.features;
 
@@ -109,12 +110,27 @@ function isScriptsHero(title: string) {
                       }
                     </div>
 
-                    <div class="card-footer-band mt-auto flex flex-wrap gap-1.5 px-5 py-3 sm:px-6">
+                    <div class="card-footer-band mt-auto flex flex-wrap items-center gap-2 px-5 py-3 sm:px-6">
                       {item.tags.map((tag) => (
                         <Badge variant="secondary" class="text-[11px]">
                           {tag}
                         </Badge>
                       ))}
+                      {
+                        item.viewLabel && item.viewScrollTarget ? (
+                          <Button
+                            as="a"
+                            href={`#${item.viewScrollTarget}`}
+                            data-scroll-target={item.viewScrollTarget}
+                            variant="outline"
+                            size="sm"
+                            class="ml-auto rounded-full border-primary/40 text-xs"
+                          >
+                            {item.viewLabel}
+                            <Icon name="arrowRight" size={14} />
+                          </Button>
+                        ) : null
+                      }
                     </div>
                   </>
                 )

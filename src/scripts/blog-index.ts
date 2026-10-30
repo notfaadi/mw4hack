@@ -1,18 +1,27 @@
 /** Blog index topic filters + Starwind sort select. */
+
+const boundGrids = new WeakSet<HTMLElement>();
+
 export function initBlogIndexFilters(emptyMessage: string) {
   const grid = document.getElementById('blog-grid');
   const emptyEl = document.getElementById('blog-empty');
   const sortRoot = document.getElementById('blog-sort-select');
-  if (!grid) return;
+  const featuredSlot = document.querySelector<HTMLElement>('[data-blog-featured]');
+  if (!grid || boundGrids.has(grid)) return;
+  boundGrids.add(grid);
 
-  const filters = document.querySelectorAll<HTMLButtonElement>('[data-blog-filter]');
+  const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-blog-filter]')];
 
   const cards = () => [...grid.querySelectorAll<HTMLElement>('[data-blog-card]')];
 
+  const normalizeTag = (value: string | null | undefined) => (value ?? '').trim().toLowerCase();
+
   const activeTag = () =>
-    document.querySelector<HTMLButtonElement>('[data-blog-filter][aria-pressed="true"]')?.getAttribute(
-      'data-blog-filter',
-    ) ?? 'all';
+    normalizeTag(
+      document.querySelector<HTMLButtonElement>('[data-blog-filter][aria-pressed="true"]')?.getAttribute(
+        'data-blog-filter',
+      ),
+    ) || 'all';
 
   const getSortSelectRoot = () => sortRoot?.querySelector<HTMLElement>('[data-sw-select]');
 
@@ -41,6 +50,14 @@ export function initBlogIndexFilters(emptyMessage: string) {
     return tsB - tsA;
   };
 
+  const setFilterActive = (active: HTMLButtonElement) => {
+    filters.forEach((btn) => {
+      const pressed = btn === active;
+      btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      btn.classList.toggle('is-active', pressed);
+    });
+  };
+
   const apply = () => {
     const tag = activeTag();
     const sort = getSort();
@@ -51,10 +68,17 @@ export function initBlogIndexFilters(emptyMessage: string) {
 
     let visibleCount = 0;
     items.forEach((el) => {
-      const match = tag === 'all' || el.getAttribute('data-tag') === tag;
+      const cardTag = normalizeTag(el.getAttribute('data-tag'));
+      const match = tag === 'all' || cardTag === tag;
       el.classList.toggle('hidden', !match);
       if (match) visibleCount += 1;
     });
+
+    if (featuredSlot) {
+      const featuredTag = normalizeTag(featuredSlot.getAttribute('data-tag'));
+      const showFeatured = tag === 'all' || featuredTag === tag;
+      featuredSlot.classList.toggle('hidden', !showFeatured);
+    }
 
     if (emptyEl) {
       emptyEl.classList.toggle('hidden', visibleCount > 0);
@@ -64,8 +88,7 @@ export function initBlogIndexFilters(emptyMessage: string) {
 
   filters.forEach((btn) => {
     btn.addEventListener('click', () => {
-      filters.forEach((b) => b.setAttribute('aria-pressed', 'false'));
-      btn.setAttribute('aria-pressed', 'true');
+      setFilterActive(btn);
       apply();
     });
   });
@@ -77,7 +100,19 @@ export function initBlogIndexFilters(emptyMessage: string) {
 
   document.addEventListener('starwind:value-change', onSortChange);
 
-  // Starwind select hydrates after first paint — re-apply once ready.
   requestAnimationFrame(apply);
-  window.setTimeout(apply, 0);
+  window.setTimeout(apply, 100);
+}
+
+export function setupBlogIndexPage() {
+  const run = () => {
+    const grid = document.getElementById('blog-grid');
+    if (!grid) return;
+    const root = grid.closest<HTMLElement>('[data-blog-index]');
+    const emptyMessage = root?.getAttribute('data-empty-filter') ?? 'No articles match this filter.';
+    initBlogIndexFilters(emptyMessage);
+  };
+
+  run();
+  document.addEventListener('astro:page-load', run);
 }

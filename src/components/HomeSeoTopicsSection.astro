@@ -1,0 +1,53 @@
+---
+import { KEYWORDS_FEATURES, KEYWORDS_MODES, KEYWORDS_REGIONAL, KEYWORDS_SUPPORT } from '../config/seoKeywords';
+
+const clusters = [
+  {
+    title: 'Modern Warfare 4 cheat features',
+    terms: KEYWORDS_FEATURES.slice(0, 24),
+  },
+  {
+    title: 'Multiplayer, Warzone & playlists',
+    terms: KEYWORDS_MODES,
+  },
+  {
+    title: 'Setup, status & support',
+    terms: KEYWORDS_SUPPORT,
+  },
+  {
+    title: 'Global search topics',
+    terms: KEYWORDS_REGIONAL,
+  },
+];
+---
+
+<section
+  class="border-t border-border/80 bg-muted/20 py-10 md:py-12"
+  aria-labelledby="seo-topics-heading"
+>
+  <div class="mx-auto max-w-6xl px-5">
+    <h2
+      id="seo-topics-heading"
+      class="font-[family-name:var(--font-heading)] text-lg font-bold tracking-tight text-foreground md:text-xl"
+    >
+      Modern Warfare 4 cheats — topics we cover
+    </h2>
+    <p class="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+      MW4 Hacks publishes aimbot, wallhack, ESP, radar, unlock tools, HWID utilities, and patch-day
+      guides for Call of Duty Modern Warfare 4 on PC—Multiplayer, Warzone, and private-match testing
+      worldwide.
+    </p>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        clusters.map((cluster) => (
+          <div class="min-w-0">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-primary">{cluster.title}</h3>
+            <p class="mt-2 text-xs leading-relaxed text-muted-foreground">
+              {cluster.terms.join(' · ')}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -149,8 +149,6 @@ function migrateFile(file) {
   for (const [from, to] of REPLACEMENTS) {
     next = next.split(from).join(to);
   }
-  next = next.replace(/\/images\/blog\/mw4-/g, '/images/blog/dota-2-');
-  next = next.replace(/\/images\/gameplay\/mw4-/g, '/images/gameplay/dota-2-');
   if (next !== text) fs.writeFileSync(file, next, 'utf8');
 }
 

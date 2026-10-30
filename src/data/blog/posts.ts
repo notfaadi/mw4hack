@@ -1,11 +1,13 @@
 import type { BlogPostFull } from './types';
+import { blogImageForSlug } from './images';
+import { featureUpdatesTroubleshootingPosts } from './posts-feature-updates-troubleshooting';
 
 type BodyBlock = BlogPostFull['body'][number];
 
 const hub = '/products/mw4-cheats/';
 
 function article(
-  meta: Omit<BlogPostFull, 'body'>,
+  meta: Omit<BlogPostFull, 'body' | 'image'>,
   sections: Array<{ h?: string; p: string[] }>,
 ): BlogPostFull {
   const body: BodyBlock[] = [];
@@ -13,7 +15,7 @@ function article(
     if (section.h) body.push({ type: 'h2', text: section.h });
     for (const text of section.p) body.push({ type: 'p', text });
   }
-  return { ...meta, body };
+  return { ...meta, image: blogImageForSlug(meta.slug), body };
 }
 
 export const blogPosts: BlogPostFull[] = [
@@ -22,7 +24,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'Modern Warfare 4 Private Match settings for safe testing',
       slug: 'mw4-cheat-codes-guide',
-      image: '/images/blog/dota-2-cheat-codes-guide.png',
       desc: 'Use Private Matches and bot backfills to test MW4 cheats, wallhack layouts, and aim profiles before Multiplayer.',
       date: 'Aug 20, 2026',
       readTime: '10 min read',
@@ -55,7 +56,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'MW4 debug tips for configs and binds',
       slug: 'mw4-console-cheats-tips',
-      image: '/images/blog/dota-2-console-cheats-tips.png',
       desc: 'Sensitivity, ADS timing, and PC performance tips that pair with external MW4 cheat loaders.',
       date: 'Aug 19, 2026',
       readTime: '6 min read',
@@ -81,7 +81,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Setup',
       title: 'How to use training mode before enabling MW4 cheats',
       slug: 'how-to-use-mw4-cheat-codes',
-      image: '/images/blog/how-to-use-dota-2-cheat-codes.png',
       desc: 'Step-by-step: status check, loader install, Private Match test, then Multiplayer with cloud-backed profiles.',
       date: 'Aug 18, 2026',
       readTime: '7 min read',
@@ -93,6 +92,13 @@ export const blogPosts: BlogPostFull[] = [
           'Training mode and Private Matches help you learn manual recoil first—automation is easier to tune when you know the baseline spray pattern.',
         ],
       },
+      {
+        h: 'Battle.net launch order',
+        p: [
+          'Start Battle.net, verify Modern Warfare 4 files, launch the game once without overlays, then exit and open the MW4 Hacks loader. This confirms Ricochet initialized cleanly before you enable ESP or aim assist.',
+          'Save separate cloud profiles for Multiplayer 6v6, Warzone trios, and Private Match testing so a Warzone FOV tweak does not carry into Search & Destroy.',
+        ],
+      },
     ],
   ),
   article(
@@ -100,7 +106,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Features',
       title: 'MW4 cheats features: aimbot, wallhack, Unlock All and more',
       slug: 'mw4-cheats-features-guide',
-      image: '/images/blog/dota-2-cheats-features-guide.png',
       desc: 'Full breakdown of Lite, Pro, and Elite modules—ESP, aim assist, recoil control, Unlock All, and stream-proof overlays.',
       date: 'Aug 18, 2026',
       readTime: '12 min read',
@@ -112,6 +117,13 @@ export const blogPosts: BlogPostFull[] = [
           'Every tier includes cloud config backup and patch notifications. Modules are grouped in the loader so you can toggle categories without restarting the game when the build supports hot reload.',
         ],
       },
+      {
+        h: 'Warzone vs Multiplayer modules',
+        p: [
+          'Warzone benefits from loot ESP, gas circle hints, and long-range visibility checks. Multiplayer Hardpoint and SND favor compact radar overlays and streak denial macros.',
+          'Stream-proof toggles apply per module—creators can keep chat overlays visible while hiding player boxes from OBS capture.',
+        ],
+      },
     ],
   ),
   article(
@@ -119,7 +131,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'MW4 settings and binds for external overlays',
       slug: 'mw4-console-commands-cheats',
-      image: '/images/blog/dota-2-console-commands-cheats.png',
       desc: 'Keybind hygiene, toggle keys, and overlay opacity settings for readable wallhack in Warzone.',
       date: 'Aug 17, 2026',
       readTime: '8 min read',
@@ -138,7 +149,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'MW4 Lite vs Pro: which tier fits you',
       slug: 'mw4-lite-vs-pro',
-      image: '/images/blog/dota-2-lite-vs-pro.png',
       desc: 'Wallhack-only vs full aim automation—compare tiers for Multiplayer and Warzone.',
       date: 'Aug 16, 2026',
       readTime: '5 min read',
@@ -157,7 +167,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'Elite tier guide: when to upgrade MW4 cheats',
       slug: 'mw4-elite-tier-guide',
-      image: '/images/blog/dota-2-elite-tier-guide.png',
       desc: 'Auto XP Bot, Auto Lethal, Unlock All, and full wallhack suite—who Elite is for and how to tune safely.',
       date: 'Aug 16, 2026',
       readTime: '7 min read',
@@ -176,7 +185,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Setup',
       title: 'MW4 aimbot settings for Multiplayer SBMM',
       slug: 'mw4-scripts-ranked-mmr',
-      image: '/images/blog/dota-2-scripts-ranked-mmr.png',
       desc: 'Smoothing, FOV cones, and visibility checks for climbing Multiplayer without obvious killcam flags.',
       date: 'Aug 15, 2026',
       readTime: '6 min read',
@@ -195,7 +203,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Setup',
       title: 'Wallhack setup for Modern Warfare 4 Multiplayer',
       slug: 'mw4-map-hack-setup',
-      image: '/images/blog/dota-2-map-hack-setup.png',
       desc: 'Player ESP, equipment markers, streak alerts, and opacity tuning for Lite and Elite tiers.',
       date: 'Aug 15, 2026',
       readTime: '5 min read',
@@ -214,7 +221,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Setup',
       title: 'FOV expander guide for Modern Warfare 4',
       slug: 'mw4-zoom-hack-guide',
-      image: '/images/blog/dota-2-zoom-hack-guide.png',
       desc: 'Extended field of view, ADS parity, and quick reset binds for search and destroy.',
       date: 'Aug 14, 2026',
       readTime: '5 min read',
@@ -233,7 +239,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'Unlock All and weapon camos for Modern Warfare 4',
       slug: 'mw4-skin-changer-guide',
-      image: '/images/blog/dota-2-skin-changer-guide.png',
       desc: 'Preview blueprints, operator skins, and attachments locally with the Unlock All module.',
       date: 'Aug 14, 2026',
       readTime: '6 min read',
@@ -252,7 +257,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Updates',
       title: 'Ricochet patch day checklist for MW4 cheats',
       slug: 'ricochet-patch-day-checklist',
-      image: '/images/blog/vac-patch-day-checklist.png',
       desc: 'Status banner, loader reload, and conservative profiles after every MW4 season or anti-cheat update.',
       date: 'Aug 13, 2026',
       readTime: '5 min read',
@@ -271,7 +275,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'HWID spoofer vs new account after a Ricochet ban',
       slug: 'mw4-hwid-spoofer-after-ban',
-      image: '/images/blog/dota-2-hwid-spoofer-after-ban.png',
       desc: 'When to spoof hardware, when to start fresh, and how MW4 utilities fit each path.',
       date: 'Aug 13, 2026',
       readTime: '7 min read',
@@ -290,7 +293,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'How to buy Modern Warfare 4 cheats in 2026',
       slug: 'how-to-buy-mw4-cheats-2026',
-      image: '/images/blog/how-to-buy-dota-2-cheats-2026.png',
       desc: 'Purchase walkthrough for Lite, Pro, and Elite via secure checkout and operator portal.',
       date: 'Aug 12, 2026',
       readTime: '5 min read',
@@ -309,7 +311,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Setup',
       title: 'Weapon loadout macros: SMG, sniper, and marksman examples',
       slug: 'mw4-auto-combo-hero-scripts',
-      image: '/images/blog/dota-2-auto-combo-hero-scripts.png',
       desc: 'Pro-tier macro examples for burst SMGs, quick-scope chains, and marksman repositioning.',
       date: 'Aug 12, 2026',
       readTime: '6 min read',
@@ -328,7 +329,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Troubleshooting',
       title: 'Ricochet anti-cheat was unable to verify Modern Warfare 4',
       slug: 'ricochet-verification-errors',
-      image: '/images/blog/valve-anti-cheat-unable-to-verify.png',
       desc: 'Fix verification errors, integrity scans, and when to use UGC appeal workflows.',
       date: 'Aug 11, 2026',
       readTime: '6 min read',
@@ -347,7 +347,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Guides',
       title: 'Modern Warfare 4 external cheat guide',
       slug: 'mw4-external-cheat-guide',
-      image: '/images/blog/dota-2-external-cheat-guide.png',
       desc: 'Why external MW4 loaders matter and how they differ from risky internal injectors.',
       date: 'Aug 11, 2026',
       readTime: '7 min read',
@@ -366,7 +365,6 @@ export const blogPosts: BlogPostFull[] = [
       tag: 'Setup',
       title: 'Stream-proof overlay setup for Modern Warfare 4',
       slug: 'mw4-stream-proof-setup',
-      image: '/images/blog/dota-2-stream-proof-setup.png',
       desc: 'Hide wallhack and aim overlays from OBS, Game Bar, and capture cards.',
       date: 'Aug 10, 2026',
       readTime: '5 min read',
@@ -380,4 +378,5 @@ export const blogPosts: BlogPostFull[] = [
       },
     ],
   ),
+  ...featureUpdatesTroubleshootingPosts,
 ];

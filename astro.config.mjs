@@ -15,6 +15,7 @@ export default defineConfig({
     '/products/mw4-cheats/': '/products/mw4-cheats/',
     '/products/mw4-cheats/elite/': '/products/mw4-cheats/elite/',
     '/contact/': '/support/',
+    '/products/mw4-cheats/unlock-all/': '/products/mw4-cheats/skin-changer/',
   },
   compressHTML: true,
   prefetch: {

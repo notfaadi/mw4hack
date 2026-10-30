@@ -35,7 +35,7 @@ const pro = link('Pro tier (scripts included)', ROUTES.products);
 const productsHub = link('Modern Warfare 4 products', ROUTES.products);
 const hwid = link('HWID Spoofer', productPath('hwid-spoofer'));
 const ugc = link('UGC', productPath('ugc'));
-const skin = link('Unlock All', productPath('unlock-all'));
+const skin = link('Skin Changer', productPath('skin-changer'));
 const faqPage = link('full FAQ', ROUTES.faq);
 const blog = link('blog guides', ROUTES.blog);
 
@@ -102,7 +102,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhichTierEsp',
     q: 'Which tier do I need for wallhack only?',
-    a: `${lite} is awareness only: player ESP, equipment locator, killstreak timers and FOV expander. ${pro} adds scripts. ${elite} adds bots, kill steal and Unlock All.`,
+    a: `${lite} is awareness only: player ESP, equipment locator, killstreak timers and FOV expander. ${pro} adds scripts. ${elite} adds bots, kill steal and Skin Changer.`,
     scopes: ['lite'],
   },
   {
@@ -169,9 +169,9 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'skin-changer',
     topic: 'products',
     icon: 'faqSkinChanger',
-    q: 'Does Unlock All modify my Steam inventory?',
+    q: 'Does Skin Changer modify my Battle.net inventory?',
     a: `${skin} previews cosmetics locally on your client. Other players see your real inventory. Included with ${elite}; available standalone for cosmetic preview only.`,
-    scopes: ['unlock-all'],
+    scopes: ['skin-changer'],
   },
   {
     id: 'external-loader',
@@ -222,7 +222,7 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqWhoElite',
     q: 'Who should buy Elite?',
-    a: `Operators who want Auto XP Bot, Auto Kill Steal, Unlock All and priority patch delivery when slots are open.`,
+    a: `Operators who want Auto XP Bot, Auto Kill Steal, Skin Changer and priority patch delivery when slots are open.`,
     scopes: ['elite'],
   },
   {
@@ -473,7 +473,7 @@ export const compareRows = [
   { feature: 'Auto Kill Steal', icon: 'compareAutoKillSteal' as const, lite: false, pro: false, elite: true },
   { feature: 'Auto Lethal', icon: 'compareAutoDagon' as const, lite: false, pro: false, elite: true },
   { feature: 'Full wallhack suite', icon: 'compareFullMapHack' as const, lite: false, pro: false, elite: true },
-  { feature: 'Unlock All (Unlock All)', icon: 'compareSkinChanger' as const, lite: false, pro: false, elite: true },
+  { feature: 'Skin Changer', icon: 'compareSkinChanger' as const, lite: false, pro: false, elite: true },
   { feature: 'Priority patch queue', icon: 'comparePriorityPatch' as const, lite: false, pro: false, elite: true },
   { feature: 'Direct dev Discord support', icon: 'compareDevSupport' as const, lite: false, pro: false, elite: true },
   { feature: 'Cloud config backup', icon: 'compareCloudBackup' as const, lite: true, pro: true, elite: true },

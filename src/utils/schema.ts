@@ -1,6 +1,7 @@
 import type { FaqItem } from '../i18n/types';
 import { SUPPORT_EMAIL } from '../config/site';
 import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
+import { knowsAboutTopics } from '../config/seoKeywords';
 
 export interface BreadcrumbItem {
   name: string;
@@ -21,19 +22,52 @@ export function breadcrumbSchema(items: BreadcrumbItem[]) {
 }
 
 export function websiteSchema() {
+  const topics = knowsAboutTopics();
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'MW4 Hacks',
     url: `${SITE_ORIGIN}/`,
-    inLanguage: 'en-US',
+    inLanguage: ['en-US', 'en-GB', 'en-AU', 'en-CA'],
     description:
-      'Modern Warfare 4 cheats with scripts, wallhack, FOV expander, Unlock All and Multiplayer-safe tiers for PC.',
+      'Modern Warfare 4 cheats with aimbot, wallhack, ESP, radar, scripts, unlock all, HWID tools, and patch-day loader updates for PC Multiplayer and Warzone worldwide.',
+    keywords: topics.slice(0, 80).join(', '),
+    about: topics.map((name) => ({ '@type': 'Thing', name })),
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE_ORIGIN}/blog/?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
   };
 }
 
+const GLOBAL_AREAS_SERVED = [
+  'United States',
+  'United Kingdom',
+  'Canada',
+  'Australia',
+  'Germany',
+  'France',
+  'Netherlands',
+  'Sweden',
+  'Norway',
+  'Poland',
+  'Ireland',
+  'New Zealand',
+  'India',
+  'Singapore',
+  'Philippines',
+  'South Africa',
+  'Brazil',
+  'Mexico',
+  'Japan',
+  'South Korea',
+  'Worldwide',
+];
+
 export function organizationSchema() {
   const sameAs = getOrganizationSameAs();
+  const knowsAbout = knowsAboutTopics();
 
   return {
     '@context': 'https://schema.org',
@@ -43,14 +77,16 @@ export function organizationSchema() {
     logo: `${SITE_ORIGIN}/logo.svg`,
     email: SUPPORT_EMAIL,
     ...(sameAs.length > 0 ? { sameAs } : {}),
+    knowsAbout: knowsAbout.map((name) => ({ '@type': 'Thing', name })),
+    areaServed: GLOBAL_AREAS_SERVED.map((name) => ({ '@type': 'AdministrativeArea', name })),
     contactPoint: [
       {
         '@type': 'ContactPoint',
         contactType: 'customer support',
         email: SUPPORT_EMAIL,
         url: canonicalUrl('/support/'),
-        availableLanguage: ['English'],
-        areaServed: 'Worldwide',
+        availableLanguage: ['English', 'en'],
+        areaServed: GLOBAL_AREAS_SERVED,
       },
     ],
   };

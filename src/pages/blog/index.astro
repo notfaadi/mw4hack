@@ -1,4 +1,5 @@
 ---
+import '../../styles/blog-pages.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
   blogPosts,
@@ -36,6 +37,7 @@ const tagIcon = (tag: string): IconName => blogTagIcons[tag] ?? 'tag';
 <BaseLayout
   title={seo.title}
   description={seo.description}
+  keywords={seo.keywords}
   jsonLd={[
     collectionPageSchema({
       name: t.blog.title,
@@ -50,11 +52,22 @@ const tagIcon = (tag: string): IconName => blogTagIcons[tag] ?? 'tag';
   <section class="py-8 md:py-12">
     <div class="mx-auto max-w-6xl px-5">
       <Breadcrumbs items={breadcrumbs} />
-      {featured && <BlogCard post={featured} index={0} eager showDate layout="featured" />}
+      {
+        featured && (
+          <div data-blog-featured data-tag={featured.tag}>
+            <BlogCard post={featured} index={0} eager showDate layout="featured" />
+          </div>
+        )
+      }
     </div>
   </section>
 
-  <section class="border-y border-border bg-muted/20 py-12 md:py-16" aria-labelledby="blog-latest-title">
+  <section
+    class="border-y border-border bg-muted/20 py-12 md:py-16"
+    aria-labelledby="blog-latest-title"
+    data-blog-index
+    data-empty-filter={t.blog.emptyFilter}
+  >
     <div class="mx-auto max-w-6xl px-5">
       <header class="section-header max-w-2xl">
         <p class="section-header__eyebrow">{t.blog.eyebrow}</p>
@@ -70,7 +83,7 @@ const tagIcon = (tag: string): IconName => blogTagIcons[tag] ?? 'tag';
         >
           <button
             type="button"
-            class="blog-filter inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium shadow-xs hover:bg-muted"
+            class="blog-filter is-active inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium shadow-xs hover:bg-muted"
             data-blog-filter="all"
             aria-pressed="true"
           >
@@ -121,13 +134,8 @@ const tagIcon = (tag: string): IconName => blogTagIcons[tag] ?? 'tag';
     </div>
   </section>
 
-  <script define:vars={{ emptyMessage: t.blog.emptyFilter }}>
-    import { initBlogIndexFilters } from '../../scripts/blog-index.ts';
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => initBlogIndexFilters(emptyMessage));
-    } else {
-      initBlogIndexFilters(emptyMessage);
-    }
+  <script>
+    import { setupBlogIndexPage } from '../../scripts/blog-index.ts';
+    setupBlogIndexPage();
   </script>
 </BaseLayout>

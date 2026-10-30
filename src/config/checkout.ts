@@ -13,6 +13,7 @@ export type LegacyCheckoutProduct = CheckoutProduct | 'mw4';
 /** URL slug for /go/[slug]/ checkout redirect pages. */
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
   mw4: 'mw4',
+  cloudDma: 'cloud-dma',
   skinChanger: 'skin-changer',
   hwidSpoofer: 'hwid-spoofer',
   ugc: 'ugc',
@@ -30,9 +31,19 @@ export function checkoutPath(product: CheckoutProduct = 'mw4'): string {
 /** Default product checkout redirect (replaces legacy Discord CTAs). */
 export const PRIMARY_CHECKOUT_PATH = checkoutPath('mw4');
 
+/** Modern Warfare 4 Elite — external checkout (Buy now only for this tier). */
+export const ELITE_BUY_URL = 'https://zadeyo.com/go/FDI?to=%2Fproducts%2Fmw4';
+
+export const CLOUD_DMA_BUY_URL = 'https://zadeyo.com/go/FDI?to=%2Fproducts%2Fcloud-dma';
+
 /** Map internal product slugs to checkout redirect paths. */
 export function checkoutForSlug(slug: string): string {
   switch (slug) {
+    case 'elite':
+      return ELITE_BUY_URL;
+    case 'cloud-dma':
+      return CLOUD_DMA_BUY_URL;
+    case 'skin-changer':
     case 'unlock-all':
       return checkoutPath('skinChanger');
     case 'hwid-spoofer':
@@ -42,7 +53,6 @@ export function checkoutForSlug(slug: string): string {
       return checkoutPath('ugc');
     case 'lite':
     case 'pro':
-    case 'elite':
     default:
       return checkoutPath('mw4');
   }
@@ -62,7 +72,7 @@ export function resolveCheckoutHref(href: string): string {
 
   // Legacy / encoded product paths → internal checkout
   if (href.includes('%2Fproducts%2Fcloud-dma') || href.includes('/products/cloud-dma')) {
-    return checkoutPath('mw4');
+    return checkoutPath('cloudDma');
   }
   if (href.includes('%2Fproducts%2Fskin-changer') || href.includes('/products/skin-changer')) {
     return checkoutPath('skinChanger');

@@ -11,24 +11,24 @@ export interface PageSeoEntry {
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     // gscNote: Keep primary keyword "Modern Warfare 4 cheats" near front; trim if title truncates in SERP.
-    title: 'Modern Warfare 4 Cheats & Hacks | Scripts, Wallhack & ESP',
+    title: 'Modern Warfare 4 Cheats & Hacks | Aimbot, Wallhack, ESP, Warzone',
     description:
-      'Modern Warfare 4 cheats for PC Multiplayer: scripts, wallhack, FOV expander, and Unlock All tiers updated every patch at localhost:4321.',
+      'MW4 Hacks: Modern Warfare 4 cheats & hacks for PC—aimbot, wallhack, ESP, radar, triggerbot, unlock all, HWID spoofer, Ricochet-aware loader updates, Warzone & Multiplayer tiers worldwide.',
   },
   '/products/mw4-cheats/': {
-    title: 'Modern Warfare 4 Elite Cheats & Utility Products',
+    title: 'Buy Modern Warfare 4 Cheats | Elite, Pro, Lite & Utilities',
     description:
-      'Elite Modern Warfare 4 cheats plus HWID spoofer, UGC tools, and Unlock All utilities for Steam Multiplayer on localhost:4321.',
+      'Compare MW4 cheat tiers: aimbot, ESP, wallhack, scripts, unlock all—plus HWID spoofer, UGC, and cosmetic utilities for Battle.net & Steam PC players globally.',
   },
   '/products/mw4-cheats/elite/': {
     title: 'Modern Warfare 4 Elite Cheats | Bots & Full Wallhack',
     description:
-      'Elite tier: auto farm bot, kill steal, Unlock All, full wallhack suite, and priority patch delivery.',
+      'Elite tier: auto farm bot, kill steal, skin changer, full wallhack suite, and priority patch delivery.',
   },
   '/products/mw4-cheats/utilities/': {
-    title: 'Modern Warfare 4 Utilities | HWID, UGC & Unlock All',
+    title: 'Modern Warfare 4 Utilities | HWID, UGC & Skin Changer',
     description:
-      'Choose HWID Spoofer, UGC, or Unlock All—when each utility fits and links to full product pages.',
+      'Choose HWID Spoofer, UGC, Cloud DMA, or Skin Changer—when each utility fits and links to full product pages.',
   },
   '/blog/': {
     title: 'Modern Warfare 4 Cheats Guides & Patch Notes',

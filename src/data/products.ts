@@ -83,10 +83,15 @@ export const productRelatedBlogSlugs: Record<string, string[]> = {
     'mw4-hwid-spoofer-after-ban',
     'how-to-buy-mw4-cheats-2026',
   ],
-  'unlock-all': [
+  'skin-changer': [
     'mw4-skin-changer-guide',
     'mw4-cheats-features-guide',
     'mw4-stream-proof-setup',
+  ],
+  'cloud-dma': [
+    'mw4-external-cheat-guide',
+    'ricochet-patch-day-checklist',
+    'how-to-buy-mw4-cheats-2026',
   ],
 };
 
@@ -142,43 +147,43 @@ const gameplay = '/images/gameplay';
 
 const galleryRaw = {
   gpMapHack: {
-    src: `${gameplay}/dota-2-map-hack.png`,
+    src: `${gameplay}/mw4-wallhack.png`,
     alt: 'Modern Warfare 4 wallhack showing enemy player positions and equipment locations',
     caption: 'Wallhack awareness',
     captionDesc: 'Enemy position tracking, equipment ESP and killstreak timers during a Multiplayer hardpoint push.',
   },
   gpScripts: {
-    src: `${gameplay}/dota-2-scripts-combo.png`,
+    src: `${gameplay}/mw4-aimbot.png`,
     alt: 'Modern Warfare 4 aimbot assist landing an SMG burst on target',
     caption: 'Aimbot assist',
     captionDesc: 'SMG burst with recoil control and visibility checks before lock-on.',
   },
   gpZoomHack: {
-    src: `${gameplay}/dota-2-zoom-hack.png`,
+    src: `${gameplay}/mw4-fov.png`,
     alt: 'Modern Warfare 4 FOV expander extended camera view of the map',
     caption: 'Extended FOV',
     captionDesc: 'FOV expander showing wider angles for safer rotations and flank detection.',
   },
   gpSkinChanger: {
-    src: `${gameplay}/dota-2-skin-changer.png`,
-    alt: 'Modern Warfare 4 Unlock All previewing weapon camo on operator',
-    caption: 'Unlock All preview',
-    captionDesc: 'Local blueprint and operator skin preview via Unlock All—client-side only.',
+    src: `${gameplay}/mw4-unlock-all.png`,
+    alt: 'Modern Warfare 4 skin changer previewing weapon camo on operator',
+    caption: 'Skin Changer preview',
+    captionDesc: 'Local blueprint and operator skin preview via skin changer—client-side only.',
   },
   gpAutoKill: {
-    src: `${gameplay}/dota-2-auto-kill-steal.png`,
+    src: `${gameplay}/mw4-auto-lethal.png`,
     alt: 'Modern Warfare 4 Auto Kill Steal finishing a low HP enemy at range',
     caption: 'Auto Kill Steal',
     captionDesc: 'Lethal threshold detection firing at the last safe moment in a gunfight.',
   },
   gpFarmBot: {
-    src: `${gameplay}/dota-2-farm-bot.png`,
+    src: `${gameplay}/mw4-xp-bot.png`,
     alt: 'Modern Warfare 4 Auto XP Bot clearing patrol routes efficiently',
     caption: 'Auto XP Bot',
     captionDesc: 'Patrol pathing with XP timers and loadout manager for faster leveling.',
   },
   gpHeroEsp: {
-    src: `${gameplay}/dota-2-hero-esp.png`,
+    src: `${gameplay}/mw4-player-esp.png`,
     alt: 'Modern Warfare 4 player ESP with name tags and distance readouts',
     caption: 'Player ESP overlay',
     captionDesc: 'Player name tags, team colors and distance markers through smoke and cover.',
@@ -228,7 +233,7 @@ const tierAbout: Record<string, ProductPage['about']> = {
   elite: [
     {
       type: 'p',
-      text: 'Modern Warfare 4 Elite is the private build for players who want everything—Auto XP Bot, Auto Kill Steal, Auto Lethal, Unlock All, full wallhack and direct developer support. Limited slots keep the build maintainable and patch cycles fast.',
+      text: 'Modern Warfare 4 Elite is the private build for players who want everything—Auto XP Bot, Auto Kill Steal, Auto Lethal, Skin Changer, full wallhack and direct developer support. Limited slots keep the build maintainable and patch cycles fast.',
     },
     { type: 'h2', text: 'Use Elite responsibly' },
     {
@@ -267,7 +272,7 @@ const tierBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'Full bot and finish suite' },
     {
       type: 'p',
-      text: 'Auto XP Bot, Lane Control AI, Auto Kill Steal, Auto Lethal, Unlock All and full wallhack with smoke alerts. Use lobby testing before Multiplayer—Elite power requires disciplined profiles, not rage settings.',
+      text: 'Auto XP Bot, Lane Control AI, Auto Kill Steal, Auto Lethal, Skin Changer and full wallhack with smoke alerts. Use lobby testing before Multiplayer—Elite power requires disciplined profiles, not rage settings.',
     },
     { type: 'h2', text: 'Availability' },
     {
@@ -302,7 +307,19 @@ const utilityBodies: Record<string, ProductPage['body']> = {
       text: 'Some Ricochet bans cannot be reversed. UGC organizes evidence and follow-ups for Activision review. Pair with [HWID Spoofer](/products/mw4-cheats/hwid-spoofer/) when hardware is flagged, or a new account when reputation is burned.',
     },
   ],
-  'unlock-all': [
+  'cloud-dma': [
+    { type: 'h2', text: 'What Cloud DMA is' },
+    {
+      type: 'p',
+      text: 'Cloud DMA routes memory reads through a hosted DMA stack so your Battle.net PC does not run traditional injected loaders. You still need compatible hardware and network stability—use the portal compatibility scan before purchase.',
+    },
+    { type: 'h2', text: 'Pair with MW4 tools' },
+    {
+      type: 'p',
+      text: 'Many operators pair Cloud DMA with external overlays from Elite or utilities like [HWID Spoofer](/products/mw4-cheats/hwid-spoofer/) after hardware recovery. Check Discord #status and the live banner on localhost:4321 before your first Modern Warfare 4 session.',
+    },
+  ],
+  'skin-changer': [
     { type: 'h2', text: 'Local preview only' },
     {
       type: 'p',
@@ -311,7 +328,7 @@ const utilityBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'Included with Elite' },
     {
       type: 'p',
-      text: 'Unlock All ships inside the Elite tier. Buy standalone here if you want cosmetic preview without full combat modules.',
+      text: 'Skin Changer ships inside the Elite tier. Buy standalone here if you want cosmetic preview without full combat modules.',
     },
   ],
 };
@@ -396,7 +413,7 @@ const productContent: Record<
       'Full wallhack suite',
       'Smoke alert system',
       'Vision detector',
-      'Unlock All (Unlock All)',
+      'Skin Changer',
       'Priority patch queue',
       'Direct dev Discord support',
       'Elite conservative presets',
@@ -407,8 +424,42 @@ const productContent: Record<
     overview: {
       title: 'Built around a full Modern Warfare 4 operator workflow',
       paragraphs: [
-        'Modern Warfare 4 Elite is the private build with Auto XP Bot, Auto Kill Steal, Auto Lethal, Unlock All, full wallhack and priority patch delivery. Every Lite and Pro module is included—no caps, no upsells inside the loader.',
+        'Modern Warfare 4 Elite is the private build with Auto XP Bot, Auto Kill Steal, Auto Lethal, Skin Changer, full wallhack and priority patch delivery. Every Lite and Pro module is included—no caps, no upsells inside the loader.',
         'Elite slots are limited so patch cycles stay fast and builds stay maintainable. Direct dev support in Discord helps you tune conservative profiles before Multiplayer. Check the status banner on localhost:4321 before purchase.',
+      ],
+    },
+  },
+  'cloud-dma': {
+    images: slide('gpMapHack', 'gpHeroEsp', 'gpZoomHack'),
+    goodToKnow:
+      'Confirm DMA hardware compatibility and network latency in the portal before checkout. Cloud DMA is not a substitute for Activision account hygiene—follow setup docs step by step.',
+    limitations:
+      'Requires supported DMA hardware and a stable connection. Not available in all regions. Does not bypass Ricochet on its own—combine with conservative profiles and status checks.',
+    systemRequirements: [
+      { icon: 'reqWindows', text: 'Windows 10 or 11 64-bit on your gaming PC.' },
+      { icon: 'reqWifi', text: 'Stable low-latency internet for cloud DMA sessions.' },
+      { icon: 'reqCpu', text: 'Compatible DMA hardware per portal compatibility list.' },
+      { icon: 'reqShieldGuide', text: 'Complete portal setup and verification before launching Modern Warfare 4.' },
+    ],
+    fullFeatures: [
+      'Cloud DMA session routing',
+      'Portal dashboard & live status',
+      'Config backup and restore',
+      'Patch-day alignment notices',
+      'Compatibility scan workflow',
+      'Latency and link health checks',
+      'Discord operator onboarding',
+      'Hardware qualification guide',
+      'Session logging for support',
+      'Linked HWID utility shortcuts',
+      'Firmware update notifications',
+      'Multi-PC profile sync',
+    ],
+    overview: {
+      title: 'Built around remote DMA for Modern Warfare 4',
+      paragraphs: [
+        'Cloud DMA keeps heavy read paths off your local Modern Warfare 4 machine while you manage profiles, status, and updates from the operator portal—aimed at players who want hardware-grade reads with a cleaner local footprint.',
+        'Setup walks through hardware checks, portal activation, and first-session verification with Discord ops. Pair with Elite or utilities only after you confirm the live status banner on localhost:4321.',
       ],
     },
   },
@@ -474,10 +525,10 @@ const productContent: Record<
       ],
     },
   },
-  'unlock-all': {
+  'skin-changer': {
     images: slide('gpSkinChanger', 'gpHeroEsp', 'gpMapHack'),
     goodToKnow:
-      'Unlock All previews cosmetics locally on your client. Other players in your lobby see your real inventory—not preview skins. Included with Elite tier.',
+      'Skin Changer previews cosmetics locally on your client. Other players in your lobby see your real inventory—not preview skins. Included with Elite tier.',
     limitations:
       'Local preview only—does not modify Battle.net inventory or store state. Other players cannot see previewed blueprints or sets.',
     systemRequirements: mw4SystemRequirements,
@@ -492,9 +543,9 @@ const productContent: Record<
       'Loadout export',
     ],
     overview: {
-      title: 'Built around a local cosmetic preview workflow',
+      title: 'Built around a local skin changer workflow',
       paragraphs: [
-        'Unlock All lets you browse weapon blueprints, operator skins and exclusive sets locally in Modern Warfare 4—searchable catalog, favorites, and loadout export without modifying live store purchases.',
+        'Skin Changer lets you browse weapon blueprints, operator skins and exclusive sets locally in Modern Warfare 4—searchable catalog, favorites, and loadout export without modifying live store purchases.',
         'Cosmetics display on your client for testing and content creation. Other players see your actual inventory, not preview skins. Included free with Elite; available standalone for cosmetic preview without combat modules.',
       ],
     },
@@ -586,20 +637,10 @@ export function getAllCheatSlugs() {
 
 const cheatsHubSlides = slide('gpScripts', 'gpAutoKill', 'gpFarmBot');
 
-export const heroSlides = slide(
-  'gpMapHack',
-  'gpScripts',
-  'gpZoomHack',
-  'gpSkinChanger',
-  'gpAutoKill',
-  'gpFarmBot',
-  'gpHeroEsp',
-);
-
 export const productHub = {
   path: productBase,
   title: t.products.title,
   subtitle: t.products.subtitle,
-  description: 'Elite MW4 cheats, HWID spoofer, UGC recovery, and cosmetic utilities for Modern Warfare 4 on PC.',
+  description: 'Elite MW4 cheats, Cloud DMA, HWID spoofer, UGC recovery, and cosmetic utilities for Modern Warfare 4 on PC.',
   buyUrl: checkoutPath('mw4'),
 };

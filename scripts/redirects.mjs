@@ -22,6 +22,8 @@ export const PATH_REDIRECTS = new Map([
   ['/products/mw4-cheats', '/products/mw4-cheats/'],
   ['/products/mw4-cheats/account-recovery', '/products/mw4-cheats/ugc/'],
   ['/products/mw4-cheats/account-recovery/', '/products/mw4-cheats/ugc/'],
+  ['/products/mw4-cheats/unlock-all', '/products/mw4-cheats/skin-changer/'],
+  ['/products/mw4-cheats/unlock-all/', '/products/mw4-cheats/skin-changer/'],
 ]);
 
 /** Paths that should not receive a forced trailing slash. */

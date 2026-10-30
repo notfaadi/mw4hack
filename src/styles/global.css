@@ -286,11 +286,37 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
 
 .hero-status-marquee {
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, black 3rem, black calc(100% - 3rem), transparent);
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 4rem, black calc(100% - 4rem), transparent);
 }
 
 .hero-status-marquee-track {
-  animation: hero-status-marquee 55s linear infinite;
+  animation: hero-status-marquee 75s linear infinite;
+}
+
+.hero-marquee-pill {
+  gap: 0.375rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklch, var(--foreground) 22%, transparent);
+  background: transparent;
+  padding: 0.3125rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--foreground);
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 768px) {
+  .hero-marquee-pill {
+    gap: 0.4375rem;
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+}
+
+.hero-marquee-pill__icon {
+  opacity: 0.92;
 }
 
 .hero-status-marquee:hover .hero-status-marquee-track {
@@ -781,6 +807,18 @@ html:not(.dark) .deployment-cta-secondary:hover {
   border-top: 1px solid var(--border);
 }
 
+
+/* Homepage hero slider — flush images (override Starwind carousel gutters) */
+#hero-slider [data-sw-carousel-container] {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+}
+
+#hero-slider [data-sw-carousel-item] {
+  padding: 0 !important;
+  min-width: 100%;
+  flex: 0 0 100%;
+}
 
 @keyframes hero-embla-progress {
   from {

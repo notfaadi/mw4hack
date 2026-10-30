@@ -18,7 +18,7 @@ const sourceTimestamp = (path?: string) => {
 };
 ---
 
-<BaseLayout title={seo.title} description={seo.description} jsonLd={[
+<BaseLayout title={seo.title} description={seo.description} keywords={seo.keywords} jsonLd={[
   collectionPageSchema({ name: 'MW4 Hacks Community Forum', description: seo.description, url: '/forum/' }),
   breadcrumbSchema(breadcrumbs),
 ]}>

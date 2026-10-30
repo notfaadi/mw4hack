@@ -1,6 +1,11 @@
 ---
 import ResponsiveImage from './ResponsiveImage.astro';
-import { HERO_IMAGE_SIZES, HERO_IMAGE_WIDTHS } from '../utils/responsiveImage';
+import {
+  HERO_BAR_SIZES,
+  HERO_BAR_WIDTHS,
+  HERO_IMAGE_SIZES,
+  HERO_IMAGE_WIDTHS,
+} from '../utils/responsiveImage';
 import {
   Carousel,
   CarouselContent,
@@ -8,6 +13,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/starwind/carousel';
+import Icon from './icons/Icon.astro';
 
 interface Slide {
   src: string;
@@ -19,51 +25,74 @@ interface Slide {
 interface Props {
   images: Slide[];
   id: string;
-  variant?: 'default' | 'hero';
+  variant?: 'default' | 'hero' | 'heroBar';
   desktopOnly?: boolean;
 }
 
 const { images, id, variant = 'default', desktopOnly = false } = Astro.props;
-const isHero = variant === 'hero';
-const imageSizes = isHero ? HERO_IMAGE_SIZES : '(min-width: 1024px) 640px, 100vw';
-const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
+const isHeroBar = variant === 'heroBar';
+const isHero = variant === 'hero' || isHeroBar;
+const imageSizes = isHeroBar
+  ? HERO_BAR_SIZES
+  : isHero
+    ? HERO_IMAGE_SIZES
+    : '(min-width: 1024px) 640px, 100vw';
+const imageWidths = isHeroBar ? HERO_BAR_WIDTHS : isHero ? HERO_IMAGE_WIDTHS : undefined;
 ---
 
 <div
   class:list={[
     'relative w-full',
-    'rounded-xl border border-border bg-card p-2 shadow-sm',
-    desktopOnly && 'hidden lg:block',
+    isHeroBar
+      ? 'bg-black'
+      : isHero
+        ? 'overflow-hidden rounded-xl border border-border bg-black shadow-sm'
+        : 'rounded-xl border border-border bg-card p-2 shadow-sm',
+    !isHero && desktopOnly && 'hidden lg:block',
   ]}
   id={id}
   data-hero-embla-wrap={isHero || undefined}
 >
   <Carousel
-    autoInit={!isHero}
+    autoInit={false}
     data-hero-embla={isHero || undefined}
     opts={{ loop: images.length > 1, align: 'start' }}
-    class="w-full"
+    class:list={[
+      'w-full',
+      isHero &&
+        '[&_[data-sw-carousel-viewport]]:overflow-hidden [&_[data-sw-carousel-container]]:!ml-0',
+    ]}
   >
-    <CarouselContent>
+    <CarouselContent class:list={[isHero && '!ml-0 !mt-0']}>
       {images.map((img, i) => (
-        <CarouselItem class="basis-full">
+        <CarouselItem class:list={['basis-full', isHero && '!min-w-full !grow-0 !shrink-0 !basis-full !pl-0 !pt-0']}>
           <figure
             class:list={[
-              isHero ? 'aspect-[16/10] overflow-hidden rounded-lg bg-muted/30' : 'overflow-hidden rounded-lg',
+              isHeroBar
+                ? 'aspect-[21/9] max-h-[min(52vh,520px)] min-h-[200px] w-full overflow-hidden sm:min-h-[240px] md:min-h-[280px]'
+                : isHero
+                  ? 'relative m-0 aspect-video w-full overflow-hidden bg-black'
+                  : 'overflow-hidden rounded-lg',
             ]}
           >
-            <ResponsiveImage
-              src={img.src}
-              alt={img.alt}
-              width={960}
-              height={540}
-              widths={imageWidths}
-              loading={i === 0 ? 'eager' : 'lazy'}
-              fetchPriority={isHero && i === 0 ? 'high' : undefined}
-              sizes={imageSizes}
-              desktopOnly={desktopOnly}
-              class={isHero ? 'h-full w-full object-cover' : undefined}
-            />
+            <div
+              class:list={[
+                isHero &&
+                  'absolute inset-0 [&_img]:size-full [&_img]:object-cover [&_img]:object-center [&_picture]:block [&_picture]:size-full',
+              ]}
+            >
+              <ResponsiveImage
+                src={img.src}
+                alt={img.alt}
+                width={isHeroBar ? 1920 : 960}
+                height={isHeroBar ? 823 : 540}
+                widths={imageWidths}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                fetchPriority={isHero && i === 0 ? 'high' : undefined}
+                sizes={imageSizes}
+                desktopOnly={isHero ? false : desktopOnly}
+              />
+            </div>
             {!isHero && (img.caption || img.captionDesc) && (
               <figcaption class="mt-2 px-1 text-sm text-muted-foreground">
                 <strong class="text-foreground">{img.caption}</strong>
@@ -74,6 +103,26 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
         </CarouselItem>
       ))}
     </CarouselContent>
+    {isHero && images.length > 1 && (
+      <>
+        <button
+          type="button"
+          data-hero-embla-prev
+          class="absolute left-3 top-1/2 z-20 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white backdrop-blur-sm transition hover:bg-black/75"
+          aria-label="Previous slide"
+        >
+          <Icon name="chevronLeft" size={20} />
+        </button>
+        <button
+          type="button"
+          data-hero-embla-next
+          class="absolute right-3 top-1/2 z-20 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/55 text-white backdrop-blur-sm transition hover:bg-black/75"
+          aria-label="Next slide"
+        >
+          <Icon name="chevronRight" size={20} />
+        </button>
+      </>
+    )}
     {!isHero && images.length > 1 && (
       <>
         <CarouselPrevious class="left-2" />
@@ -83,7 +132,7 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
   </Carousel>
   {isHero && images.length > 1 && (
     <div
-      class="pointer-events-none absolute inset-x-2 bottom-3 flex justify-center"
+      class="pointer-events-none absolute inset-x-0 bottom-3 z-20 flex justify-center"
       data-hero-embla-dots
       role="tablist"
       aria-label="Hero slides"
@@ -110,10 +159,3 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
     </div>
   )}
 </div>
-
-{isHero && (
-  <script>
-    import { setupHeroEmbla } from '../scripts/hero-embla.ts';
-    setupHeroEmbla();
-  </script>
-)}

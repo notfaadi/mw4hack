@@ -11,6 +11,7 @@ import {
   DEFAULT_OG_IMAGE_WIDTH,
   GA_MEASUREMENT_ID,
   absoluteAssetUrl,
+  resolvePageSeo,
 } from '../config/seo';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -19,6 +20,7 @@ import JsonLd from '../components/JsonLd.astro';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
   ogImage?: string;
   ogImageAlt?: string;
   ogType?: 'website' | 'article';
@@ -31,6 +33,7 @@ interface Props {
 const {
   title = t.site.title,
   description = t.site.description,
+  keywords,
   ogImage = DEFAULT_OG_IMAGE,
   ogImageAlt = title,
   ogType = 'website',
@@ -41,6 +44,7 @@ const {
 } = Astro.props;
 
 const canonical = canonicalUrl(Astro.url.pathname);
+const metaKeywords = keywords ?? resolvePageSeo(Astro.url.pathname).keywords;
 const ogImageUrl = absoluteAssetUrl(ogImage);
 const robotsContent = noindex
   ? 'noindex, nofollow'
@@ -64,6 +68,16 @@ const robotsContent = noindex
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={metaKeywords} />
+    <meta name="news_keywords" content={metaKeywords} />
+    <meta name="subject" content="Modern Warfare 4 cheats, aimbot, wallhack, ESP, Warzone hacks" />
+    <meta name="topic" content="Call of Duty Modern Warfare 4 PC cheats and utilities" />
+    <meta name="summary" content={description} />
+    <meta name="classification" content="Games, Call of Duty, Modern Warfare 4, PC software" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="distribution" content="Global" />
+    <meta name="target" content="all" />
+    <meta name="audience" content="Modern Warfare 4 PC players worldwide" />
     <meta name="author" content={t.site.name} />
     <meta name="robots" content={robotsContent} />
     <meta name="googlebot" content={robotsContent} />
@@ -96,6 +110,15 @@ const robotsContent = noindex
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={t.site.name} />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="en_AU" />
+    <meta property="og:locale:alternate" content="en_CA" />
+    <meta property="og:locale:alternate" content="en_IN" />
+    <meta property="og:locale:alternate" content="en_IE" />
+    <meta property="og:locale:alternate" content="en_NZ" />
+    <meta property="og:locale:alternate" content="en_ZA" />
+    <meta property="og:locale:alternate" content="en_SG" />
+    <meta property="og:locale:alternate" content="en_PH" />
 
     {
       ogType === 'article' && articlePublishedTime && (

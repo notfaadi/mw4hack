@@ -1,12 +1,13 @@
 import { t } from '../i18n';
 import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
 import { getPageSeoEntry } from './pageSeo';
+import { formatMetaKeywords, keywordsForPath } from './seoKeywords';
 
 export const SITE_ORIGIN = t.site.domain.includes('localhost')
   ? `http://${t.site.domain}`
   : `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/images/gameplay/dota-2-map-hack.png';
+export const DEFAULT_OG_IMAGE = '/images/hero/mw4-hero-dmz.jpg';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
@@ -40,10 +41,18 @@ export function absoluteAssetUrl(path: string): string {
   return `${SITE_ORIGIN}${normalized}`;
 }
 
-export function resolvePageSeo(pathname: string): { title: string; description: string } {
+export interface ResolvedPageSeo {
+  title: string;
+  description: string;
+  keywords: string;
+}
+
+export function resolvePageSeo(pathname: string): ResolvedPageSeo {
   const entry = getPageSeoEntry(pathname);
-  if (entry) return entry;
-  return { title: t.site.title, description: t.site.description };
+  const title = entry?.title ?? t.site.title;
+  const description = entry?.description ?? t.site.description;
+  const keywords = formatMetaKeywords(keywordsForPath(pathname));
+  return { title, description, keywords };
 }
 
 export function pageTitle(keyword: string, brand = t.site.name): string {
