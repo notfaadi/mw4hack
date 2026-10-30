@@ -55,7 +55,7 @@ export type IconName =
   | 'mapHack'
   | 'support247'
   | 'instantDelivery'
-  | 'rankedSafe'
+  | 'MultiplayerSafe'
   | 'triggerBot'
   | 'boneSelect'
   | 'liveStatus'

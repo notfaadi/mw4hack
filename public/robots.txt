@@ -3,6 +3,6 @@ Allow: /
 
 Disallow: /go/
 
-Sitemap: https://dotacheats.com/sitemap.xml
+Sitemap: https://localhost:4321/sitemap.xml
 
-# RSS: https://dotacheats.com/rss.xml
+# RSS: https://localhost:4321/rss.xml

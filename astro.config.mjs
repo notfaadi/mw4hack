@@ -4,14 +4,16 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
-  site: 'https://dotacheats.com',
+  site: 'http://localhost:4321',
   trailingSlash: 'always',
   redirects: {
-    '/cheats/': '/products/dota-2-cheats/',
-    '/cheats/lite/': '/products/dota-2-cheats/',
-    '/cheats/pro/': '/products/dota-2-cheats/',
-    '/cheats/elite/': '/products/dota-2-cheats/elite/',
-    '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
+    '/cheats/': '/products/mw4-cheats/',
+    '/cheats/lite/': '/products/mw4-cheats/',
+    '/cheats/pro/': '/products/mw4-cheats/',
+    '/cheats/elite/': '/products/mw4-cheats/elite/',
+    '/cheats/compare/': '/blog/mw4-lite-vs-pro/',
+    '/products/mw4-cheats/': '/products/mw4-cheats/',
+    '/products/mw4-cheats/elite/': '/products/mw4-cheats/elite/',
     '/contact/': '/support/',
   },
   compressHTML: true,

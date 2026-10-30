@@ -10,59 +10,59 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    // gscNote: Keep primary keyword "dota 2 cheats" near front; trim if title truncates in SERP.
-    title: 'Dota 2 Cheats & Hacks | Scripts, Map Hack & ESP',
+    // gscNote: Keep primary keyword "Modern Warfare 4 cheats" near front; trim if title truncates in SERP.
+    title: 'Modern Warfare 4 Cheats & Hacks | Scripts, Wallhack & ESP',
     description:
-      'Dota 2 cheats for PC ranked: scripts, map hack, zoom hack, and skin changer tiers updated every patch at dotacheats.com.',
+      'Modern Warfare 4 cheats for PC Multiplayer: scripts, wallhack, FOV expander, and Unlock All tiers updated every patch at localhost:4321.',
   },
-  '/products/dota-2-cheats/': {
-    title: 'Dota 2 Elite Cheats & Utility Products',
+  '/products/mw4-cheats/': {
+    title: 'Modern Warfare 4 Elite Cheats & Utility Products',
     description:
-      'Elite dota 2 cheats plus HWID spoofer, UGC tools, and Skin Changer utilities for Steam ranked on dotacheats.com.',
+      'Elite Modern Warfare 4 cheats plus HWID spoofer, UGC tools, and Unlock All utilities for Steam Multiplayer on localhost:4321.',
   },
-  '/products/dota-2-cheats/elite/': {
-    title: 'Dota 2 Elite Cheats | Bots & Full Map Hack',
+  '/products/mw4-cheats/elite/': {
+    title: 'Modern Warfare 4 Elite Cheats | Bots & Full Wallhack',
     description:
-      'Elite tier: auto farm bot, kill steal, skin changer, full map hack suite, and priority patch delivery.',
+      'Elite tier: auto farm bot, kill steal, Unlock All, full wallhack suite, and priority patch delivery.',
   },
-  '/products/dota-2-cheats/utilities/': {
-    title: 'Dota 2 Utilities | HWID, UGC & Skin Changer',
+  '/products/mw4-cheats/utilities/': {
+    title: 'Modern Warfare 4 Utilities | HWID, UGC & Unlock All',
     description:
-      'Choose HWID Spoofer, UGC, or Skin Changer—when each utility fits and links to full product pages.',
+      'Choose HWID Spoofer, UGC, or Unlock All—when each utility fits and links to full product pages.',
   },
   '/blog/': {
-    title: 'Dota 2 Cheats Guides & Patch Notes',
+    title: 'Modern Warfare 4 Cheats Guides & Patch Notes',
     description:
-      'Setup guides, Lite vs Pro comparisons, VAC patch checklists, and ranked config tips for dota cheats.',
+      'Setup guides, Lite vs Pro comparisons, Ricochet patch checklists, and Multiplayer config tips for MW4 cheats.',
   },
   '/forum/': {
-    title: 'Dota 2 Community Forum | DotaCheats',
-    description: 'Join Dota players to discuss heroes, builds, patch changes, guides, and community moments.',
+    title: 'Modern Warfare 4 Community Forum | MW4 Hacks',
+    description: 'Join MW4 players to discuss heroes, builds, patch changes, guides, and community moments.',
   },
   '/faq/': {
-    title: 'FAQ | Dota 2 Cheats, Products & Setup',
+    title: 'FAQ | Modern Warfare 4 Cheats, Products & Setup',
     description:
-      'Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at dotacheats.com.',
+      'Answers on cheat tiers, wallhack, scripts, HWID tools, checkout, and blog guides at localhost:4321.',
   },
   '/terms/': {
-    title: 'Terms & Conditions | DotaCheats',
+    title: 'Terms & Conditions | MW4 Hacks',
     description:
-      'Purchase terms, license use, and refund policy for DotaCheats products sold through dotacheats.com.',
+      'Purchase terms, license use, and refund policy for MW4 Hacks products sold through localhost:4321.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | DotaCheats',
+    title: 'Privacy Policy | MW4 Hacks',
     description:
-      'How dotacheats.com uses analytics, cookies, and contact data when you browse or request support.',
+      'How localhost:4321 uses analytics, cookies, and contact data when you browse or request support.',
   },
   '/about/': {
-    title: 'About DotaCheats',
+    title: 'About MW4 Hacks',
     description:
-      'What DotaCheats publishes: Dota 2 cheat tiers, utilities, guides, and status notes at dotacheats.com.',
+      'What MW4 Hacks publishes: Modern Warfare 4 cheat tiers, utilities, guides, and status notes at localhost:4321.',
   },
   '/support/': {
-    title: 'Support | DotaCheats',
+    title: 'Support | MW4 Hacks',
     description:
-      'Get help with loader setup, HWID, and checkout for Dota 2 cheat tiers and utilities.',
+      'Get help with loader setup, HWID, and checkout for Modern Warfare 4 cheat tiers and utilities.',
   },
 };
 

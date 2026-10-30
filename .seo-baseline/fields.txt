@@ -1,56 +1,56 @@
 === index.html ===
-Dota 2 Cheats &amp; Hacks | Scripts, Map Hack &amp; ESP
-Dota 2 cheats for PC ranked: scripts, map hack, zoom hack, and skin changer tiers updated every patch at dotacheats.com.
-https://dotacheats.com/
+Modern Warfare 4 Cheats &amp; Hacks | Scripts, Wallhack &amp; ESP
+Modern Warfare 4 cheats for PC Multiplayer: scripts, wallhack, FOV expander, and Unlock All tiers updated every patch at localhost:4321.
+https://localhost:4321/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === cheats/index.html ===
-Dota 2 Cheat Tiers | Lite, Pro &amp; Elite
-Compare Lite, Pro, and Elite dota cheats—ESP, scripts, map hack, and automation modules for Steam ranked on Windows.
-https://dotacheats.com/cheats/
+Modern Warfare 4 Cheat Tiers | Lite, Pro &amp; Elite
+Compare Lite, Pro, and Elite MW4 cheats—ESP, scripts, wallhack, and automation modules for Steam Multiplayer on Windows.
+https://localhost:4321/cheats/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === cheats/lite/index.html ===
-Lite Dota 2 Cheats | DotaCheats
-Entry tier for dota cheats with player ESP, ward locator, jungle awareness and minimap overlay.
-https://dotacheats.com/cheats/lite/
+Lite Modern Warfare 4 Cheats | MW4 Hacks
+Entry tier for MW4 cheats with player ESP, equipment locator, jungle awareness and tactical map overlay.
+https://localhost:4321/cheats/lite/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === blog/index.html ===
-Dota 2 Cheats Guides &amp; Patch Notes
-Setup guides, Lite vs Pro comparisons, VAC patch checklists, and ranked config tips for dota cheats.
-https://dotacheats.com/blog/
+Modern Warfare 4 Cheats Guides &amp; Patch Notes
+Setup guides, Lite vs Pro comparisons, Ricochet patch checklists, and Multiplayer config tips for MW4 cheats.
+https://localhost:4321/blog/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
-=== blog/dota-2-cheat-codes-guide/index.html ===
-Dota 2 cheat codes guide: console commands for | DotaCheats
-Full list of Dota 2 cheat codes for custom lobbies—gold, levels, vision, hero spawn and item commands.
-https://dotacheats.com/blog/dota-2-cheat-codes-guide/
+=== blog/mw4-cheat-codes-guide/index.html ===
+Modern Warfare 4 cheat codes guide: console commands for | MW4 Hacks
+Full list of Modern Warfare 4 cheat codes for Private Matches—gold, levels, vision, hero spawn and item commands.
+https://localhost:4321/blog/mw4-cheat-codes-guide/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === faq/index.html ===
-FAQ | Dota 2 Cheats, Products &amp; Setup
-Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at dotacheats.com.
-https://dotacheats.com/faq/
+FAQ | Modern Warfare 4 Cheats, Products &amp; Setup
+Answers on cheat tiers, wallhack, scripts, HWID tools, checkout, and blog guides at localhost:4321.
+https://localhost:4321/faq/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === contact/index.html ===
-Contact &amp; Support | DotaCheats
-Get help with loader setup, HWID, and checkout for Dota 2 cheat tiers and utilities.
-https://dotacheats.com/contact/
+Contact &amp; Support | MW4 Hacks
+Get help with loader setup, HWID, and checkout for Modern Warfare 4 cheat tiers and utilities.
+https://localhost:4321/contact/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === 404.html ===
-Page not found | DotaCheats
-The page you requested could not be found on dotacheats.com.
-https://dotacheats.com/404/
+Page not found | MW4 Hacks
+The page you requested could not be found on localhost:4321.
+https://localhost:4321/404/
 noindex, nofollow
 0
 1

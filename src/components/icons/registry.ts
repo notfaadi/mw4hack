@@ -131,7 +131,7 @@ export const iconRegistry: Record<IconName, AstroComponent> = {
   mapHack: Map,
   support247: Headphones,
   instantDelivery: Truck,
-  rankedSafe: ShieldCheck,
+  MultiplayerSafe: ShieldCheck,
   triggerBot: Focus,
   boneSelect: LocateFixed,
   liveStatus: Activity,

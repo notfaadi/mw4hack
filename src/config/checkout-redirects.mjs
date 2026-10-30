@@ -1,6 +1,6 @@
 /** Checkout destinations keyed by internal product id (no affiliate codes). */
 export const CHECKOUT_URLS = {
-  dota2: 'https://zadeyo.com/products/dota-2',
+  mw4: 'https://zadeyo.com/products/mw4',
   skinChanger: 'https://zadeyo.com/products/skin-changer',
   hwidSpoofer: 'https://zadeyo.com/products/hwid-spoofer',
   ugc: 'https://zadeyo.com/products/ugc',
@@ -8,8 +8,10 @@ export const CHECKOUT_URLS = {
 
 /** Checkout paths → external product URLs (used by Node serve + Astro middleware). */
 export const CHECKOUT_PATH_REDIRECTS = new Map([
-  ['/go/dota-2', CHECKOUT_URLS.dota2],
-  ['/go/dota-2/', CHECKOUT_URLS.dota2],
+  ['/go/mw4', CHECKOUT_URLS.mw4],
+  ['/go/mw4/', CHECKOUT_URLS.mw4],
+  ['/go/mw4', CHECKOUT_URLS.mw4],
+  ['/go/mw4/', CHECKOUT_URLS.mw4],
   ['/go/skin-changer', CHECKOUT_URLS.skinChanger],
   ['/go/skin-changer/', CHECKOUT_URLS.skinChanger],
   ['/go/hwid-spoofer', CHECKOUT_URLS.hwidSpoofer],

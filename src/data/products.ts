@@ -58,60 +58,60 @@ export interface ProductPage {
 
 /** Guides paired with each product detail page */
 export const productRelatedBlogSlugs: Record<string, string[]> = {
-  lite: ['dota-2-map-hack-setup', 'dota-2-lite-vs-pro', 'dota-2-zoom-hack-guide', 'vac-patch-day-checklist'],
+  lite: ['mw4-map-hack-setup', 'mw4-lite-vs-pro', 'mw4-zoom-hack-guide', 'ricochet-patch-day-checklist'],
   pro: [
-    'dota-2-scripts-ranked-mmr',
-    'dota-2-auto-combo-hero-scripts',
-    'dota-2-lite-vs-pro',
-    'dota-2-stream-proof-setup',
+    'mw4-scripts-ranked-mmr',
+    'mw4-auto-combo-hero-scripts',
+    'mw4-lite-vs-pro',
+    'mw4-stream-proof-setup',
   ],
   elite: [
-    'dota-2-elite-tier-guide',
-    'dota-2-cheats-features-guide',
-    'dota-2-map-hack-setup',
-    'vac-patch-day-checklist',
-    'how-to-buy-dota-2-cheats-2026',
+    'mw4-elite-tier-guide',
+    'mw4-cheats-features-guide',
+    'mw4-map-hack-setup',
+    'ricochet-patch-day-checklist',
+    'how-to-buy-mw4-cheats-2026',
   ],
   'hwid-spoofer': [
-    'dota-2-hwid-spoofer-after-ban',
-    'valve-anti-cheat-unable-to-verify',
-    'vac-patch-day-checklist',
-    'dota-2-external-cheat-guide',
+    'mw4-hwid-spoofer-after-ban',
+    'ricochet-verification-errors',
+    'ricochet-patch-day-checklist',
+    'mw4-external-cheat-guide',
   ],
   ugc: [
-    'valve-anti-cheat-unable-to-verify',
-    'dota-2-hwid-spoofer-after-ban',
-    'how-to-buy-dota-2-cheats-2026',
+    'ricochet-verification-errors',
+    'mw4-hwid-spoofer-after-ban',
+    'how-to-buy-mw4-cheats-2026',
   ],
   'unlock-all': [
-    'dota-2-skin-changer-guide',
-    'dota-2-cheats-features-guide',
-    'dota-2-stream-proof-setup',
+    'mw4-skin-changer-guide',
+    'mw4-cheats-features-guide',
+    'mw4-stream-proof-setup',
   ],
 };
 
-const productBase = '/products/dota-2-cheats/';
+const productBase = '/products/mw4-cheats/';
 
 const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Review current status',
-    desc: 'Check the live banner on dotacheats.com and Discord #status before purchase—especially after a Dota 2 or VAC update.',
+    desc: 'Check the live banner on localhost:4321 and Discord #status before purchase—especially after a Modern Warfare 4 or Ricochet update.',
   },
   {
     num: '02',
     title: 'Choose your access tier',
-    desc: 'Select Elite dota cheats or the utility that matches your goal. Review the feature list before checkout via our secure checkout.',
+    desc: 'Select Elite MW4 cheats or the utility that matches your goal. Review the feature list before checkout via our secure checkout.',
   },
   {
     num: '03',
     title: 'Contact the team',
-    desc: 'Open Discord and confirm availability, Steam platform, and payment details with your order email ready.',
+    desc: 'Open Discord and confirm availability, Battle.net platform, and payment details with your order email ready.',
   },
   {
     num: '04',
     title: 'Follow guided setup',
-    desc: 'Use only the operator portal, patch loader, and setup guide. Test in a lobby, load presets, then queue ranked or Turbo.',
+    desc: 'Use only the operator portal, patch loader, and setup guide. Test in a lobby, load presets, then queue Multiplayer or Hardpoint.',
   },
 ];
 
@@ -123,17 +123,17 @@ function acquisitionFor(productName: string): ProductAcquisition {
 }
 
 const sharedGoodToKnow =
-  'Dota 2 and VAC receive frequent updates. Confirm module availability on the live status panel at dotacheats.com before you purchase or launch. Overlay behavior may differ in lobbies, replays and spectator mode after patches.';
+  'Modern Warfare 4 and Ricochet receive frequent updates. Confirm module availability on the live status panel at localhost:4321 before you purchase or launch. Overlay behavior may differ in lobbies, replays and spectator mode after patches.';
 
 const sharedLimitations =
-  'Third-party software in Dota 2 can violate Valve Terms of Use and lead to VAC bans or account action. You use this software at your own risk. Compatibility and availability can change after game, VAC, or Windows updates without notice.';
+  'Third-party software in Modern Warfare 4 can violate Activision Terms of Use and lead to Ricochet bans or account action. You use this software at your own risk. Compatibility and availability can change after game, Ricochet, or Windows updates without notice.';
 
-const dotaSystemRequirements: SystemRequirement[] = [
+const mw4SystemRequirements: SystemRequirement[] = [
   { icon: 'reqWindows', text: 'Supported 64-bit edition of Windows 10 or Windows 11.' },
-  { icon: 'reqSteam', text: 'Current Dota 2 client via Steam with latest patches applied.' },
+  { icon: 'reqSteam', text: 'Current Modern Warfare 4 client via Battle.net with latest patches applied.' },
   { icon: 'reqSettings', text: 'Administrator access for loader installation and patch updates.' },
   { icon: 'reqWifi', text: 'Stable internet connection for portal access and patch delivery.' },
-  { icon: 'reqCpu', text: 'A system that meets Dota 2 published hardware requirements.' },
+  { icon: 'reqCpu', text: 'A system that meets Modern Warfare 4 published hardware requirements.' },
 ];
 
 type GalleryKey = keyof typeof galleryRaw;
@@ -143,45 +143,45 @@ const gameplay = '/images/gameplay';
 const galleryRaw = {
   gpMapHack: {
     src: `${gameplay}/dota-2-map-hack.png`,
-    alt: 'Dota 2 map hack showing enemy hero positions and ward locations',
-    caption: 'Map hack awareness',
-    captionDesc: 'Enemy position tracking, ward ESP and rune timers during a ranked mid push.',
+    alt: 'Modern Warfare 4 wallhack showing enemy player positions and equipment locations',
+    caption: 'Wallhack awareness',
+    captionDesc: 'Enemy position tracking, equipment ESP and killstreak timers during a Multiplayer hardpoint push.',
   },
   gpScripts: {
     src: `${gameplay}/dota-2-scripts-combo.png`,
-    alt: 'Dota 2 Auto Combo script landing Invoker combo sequence',
-    caption: 'Auto Combo scripts',
-    captionDesc: 'Invoker Tornado → EMP → Meteor chain with Smart Cast prediction active.',
+    alt: 'Modern Warfare 4 aimbot assist landing an SMG burst on target',
+    caption: 'Aimbot assist',
+    captionDesc: 'SMG burst with recoil control and visibility checks before lock-on.',
   },
   gpZoomHack: {
     src: `${gameplay}/dota-2-zoom-hack.png`,
-    alt: 'Dota 2 zoom hack extended camera view of entire lane',
-    caption: 'Extended camera zoom',
-    captionDesc: 'Zoom hack showing full lane vision for safer positioning and gank avoidance.',
+    alt: 'Modern Warfare 4 FOV expander extended camera view of the map',
+    caption: 'Extended FOV',
+    captionDesc: 'FOV expander showing wider angles for safer rotations and flank detection.',
   },
   gpSkinChanger: {
     src: `${gameplay}/dota-2-skin-changer.png`,
-    alt: 'Dota 2 Skin Changer previewing arcana cosmetic on hero',
-    caption: 'Skin Changer preview',
-    captionDesc: 'Local arcana and immortal preview via Unlock All—client-side only.',
+    alt: 'Modern Warfare 4 Unlock All previewing weapon camo on operator',
+    caption: 'Unlock All preview',
+    captionDesc: 'Local blueprint and operator skin preview via Unlock All—client-side only.',
   },
   gpAutoKill: {
     src: `${gameplay}/dota-2-auto-kill-steal.png`,
-    alt: 'Dota 2 Auto Kill Steal finishing low HP enemy with Zeus ultimate',
+    alt: 'Modern Warfare 4 Auto Kill Steal finishing a low HP enemy at range',
     caption: 'Auto Kill Steal',
-    captionDesc: 'Lethal threshold detection activating Finger of Death at perfect timing.',
+    captionDesc: 'Lethal threshold detection firing at the last safe moment in a gunfight.',
   },
   gpFarmBot: {
     src: `${gameplay}/dota-2-farm-bot.png`,
-    alt: 'Dota 2 Auto Farm Bot clearing jungle camps efficiently',
-    caption: 'Auto Farm Bot',
-    captionDesc: 'Jungle pathing with stack timer and courier manager for max GPM.',
+    alt: 'Modern Warfare 4 Auto XP Bot clearing patrol routes efficiently',
+    caption: 'Auto XP Bot',
+    captionDesc: 'Patrol pathing with XP timers and loadout manager for faster leveling.',
   },
   gpHeroEsp: {
     src: `${gameplay}/dota-2-hero-esp.png`,
-    alt: 'Dota 2 hero ESP with name tags and distance readouts',
-    caption: 'Hero ESP overlay',
-    captionDesc: 'Hero name tags, team colors and distance markers through fog of war.',
+    alt: 'Modern Warfare 4 player ESP with name tags and distance readouts',
+    caption: 'Player ESP overlay',
+    captionDesc: 'Player name tags, team colors and distance markers through smoke and cover.',
   },
 };
 
@@ -199,41 +199,41 @@ function slide(...keys: GalleryKey[]): ProductSlide[] {
 
 function slugFromHref(href: string): string {
   const segment = href.replace(productBase, '').replace(/^\//, '').replace(/\/$/, '');
-  return segment || 'dota-2-cheats';
+  return segment || 'mw4-cheats';
 }
 
 const tierAbout: Record<string, ProductPage['about']> = {
   lite: [
     {
       type: 'p',
-      text: 'Dota 2 Lite is built for players who want map awareness first. In ranked, knowing enemy positions, ward placements and rune timings wins more fights than raw mechanics—Lite gives you that edge without script automation.',
+      text: 'Modern Warfare 4 Lite is built for players who want map awareness first. In Multiplayer, knowing enemy positions, equipment placements and killstreak timings wins more fights than raw mechanics—Lite gives you that edge without aim automation.',
     },
-    { type: 'h2', text: 'Ranked-safe by design' },
+    { type: 'h2', text: 'Multiplayer-safe by design' },
     {
       type: 'p',
-      text: 'Lite skips Auto Combo and bot modules entirely. Your gameplay looks natural while map hack, zoom hack and rune timers keep you informed. Stream-proof mode hides overlays from OBS capture for content creators.',
+      text: 'Lite skips Aimbot assist and bot modules entirely. Your gameplay looks natural while wallhack, FOV expander and killstreak timers keep you informed. Stream-proof mode hides overlays from OBS capture for content creators.',
     },
   ],
   pro: [
     {
       type: 'p',
-      text: 'Dota 2 Pro is the sweet spot for ranked grinders. Auto Combo, Orbwalker and Smart Cast help you win teamfights without obvious bot patterns—when you tune Delay Setting using our portal presets.',
+      text: 'Modern Warfare 4 Pro is the sweet spot for Multiplayer grinders. Aimbot assist, Recoil control and Smart fire help you win gunfights without obvious bot patterns—when you tune Delay Setting using our portal presets.',
     },
-    { type: 'h2', text: 'Scripts + awareness combined' },
+    { type: 'h2', text: 'Aim assist + awareness combined' },
     {
       type: 'p',
-      text: 'Pro inherits every Lite module and adds Auto Combo, Target Selector, Activator and ability radius drawing. You see the fight before it starts and win it with scripts that stay human at default settings.',
+      text: 'Pro inherits every Lite module and adds aim assist, target priority, trigger logic, and hitbox visualization. You see the fight before it starts and win it with settings that stay human at default presets.',
     },
   ],
   elite: [
     {
       type: 'p',
-      text: 'Dota 2 Elite is the private build for players who want everything—Auto Farm Bot, Auto Kill Steal, Auto Dagon, Skin Changer, full map hack and direct developer support. Limited slots keep the build maintainable and patch cycles fast.',
+      text: 'Modern Warfare 4 Elite is the private build for players who want everything—Auto XP Bot, Auto Kill Steal, Auto Lethal, Unlock All, full wallhack and direct developer support. Limited slots keep the build maintainable and patch cycles fast.',
     },
     { type: 'h2', text: 'Use Elite responsibly' },
     {
       type: 'p',
-      text: 'Elite power demands disciplined profiles. Test in lobbies, start with portal conservative presets, and scale up over days—not minutes. Staff in Discord help Elite users tune before their first ranked queue.',
+      text: 'Elite power demands disciplined profiles. Test in lobbies, start with portal conservative presets, and scale up over days—not minutes. Staff in Discord help Elite users tune before their first Multiplayer queue.',
     },
   ],
 };
@@ -243,7 +243,7 @@ const tierBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'Included modules' },
     {
       type: 'p',
-      text: 'Hero ESP with distance and name tags, ward and sentry locator, rune spawn timers, zoom hack, and stream-safe overlay hiding. Config presets for ranked and Turbo ship in the portal—load before your first queue.',
+      text: 'Player ESP with distance and name tags, equipment locator, killstreak timers, FOV expander, and stream-safe overlay hiding. Config presets for Multiplayer and Warzone ship in the portal—load before your first queue.',
     },
     { type: 'h2', text: 'Upgrade path' },
     {
@@ -252,22 +252,22 @@ const tierBodies: Record<string, ProductPage['body']> = {
     },
   ],
   pro: [
-    { type: 'h2', text: 'Scripts and automation' },
+    { type: 'h2', text: 'Aim automation' },
     {
       type: 'p',
-      text: 'Auto Combo, Orbwalker, Smart Cast with Prediction, Target Selector and Activator for BKB, Hex and Orchid. Delay Setting tunes cast timing so scripts stay natural in ranked. Start with portal presets, not max sliders.',
+      text: 'Aim assist, recoil control, smart fire with prediction, target priority, and trigger modules with reaction delays. Delay sliders tune timing so aim stays natural in Multiplayer. Start with portal presets, not max sliders.',
     },
     { type: 'h2', text: 'Recommended pairing' },
     {
       type: 'p',
-      text: 'Pro is the most popular tier at dotacheats.com—enough firepower for high-MMR lobbies without Elite slot limits. Pair with our scripts guide in the blog before your first ranked session.',
+      text: 'Pro is the most popular tier at MW4 Hacks—enough firepower for high-SBMM lobbies without Elite slot limits. Pair with our aimbot guide in the blog before your first Multiplayer session.',
     },
   ],
   elite: [
     { type: 'h2', text: 'Full bot and finish suite' },
     {
       type: 'p',
-      text: 'Auto Farm Bot, Lane Control AI, Auto Kill Steal, Auto Dagon, Skin Changer and full map hack with smoke alerts. Use lobby testing before ranked—Elite power requires disciplined profiles, not rage settings.',
+      text: 'Auto XP Bot, Lane Control AI, Auto Kill Steal, Auto Lethal, Unlock All and full wallhack with smoke alerts. Use lobby testing before Multiplayer—Elite power requires disciplined profiles, not rage settings.',
     },
     { type: 'h2', text: 'Availability' },
     {
@@ -282,24 +282,24 @@ const utilityBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'When you need it' },
     {
       type: 'p',
-      text: 'Use when fresh Steam accounts fail instantly on one PC but work elsewhere—classic HWID enforcement. Do not use for account-only VAC cases; see [UGC](/products/dota-2-cheats/ugc/) instead.',
+      text: 'Use when fresh Activision accounts fail instantly on one PC but work elsewhere—classic HWID enforcement. Do not use for account-only Ricochet cases; see [UGC](/products/mw4-cheats/ugc/) instead.',
     },
     { type: 'h2', text: 'Full workflow' },
     {
       type: 'p',
-      text: 'Restore point, driver cleanup, spoof application, cold reboot, identifier verification, then conservative cheat profile before ranked. Full checklist ships in the portal and in our HWID blog guide.',
+      text: 'Restore point, driver cleanup, spoof application, cold reboot, identifier verification, then conservative cheat profile before Multiplayer. Full checklist ships in the portal and in our HWID blog guide.',
     },
   ],
   'ugc': [
     { type: 'h2', text: 'What UGC covers' },
     {
       type: 'p',
-      text: 'UGC (Unban & Governance Control) is an appeal workspace for Steam restrictions, VAC bans, trade holds and security flags. Build custom workflows, automate dispute steps and track case status from one dashboard—not a guaranteed unban service.',
+      text: 'UGC (Unban & Governance Control) is an appeal workspace for Activision restrictions, Ricochet bans, trade holds and security flags. Build custom workflows, automate dispute steps and track case status from one dashboard—not a guaranteed unban service.',
     },
     { type: 'h2', text: 'Realistic expectations' },
     {
       type: 'p',
-      text: 'Some VAC bans cannot be reversed. UGC organizes evidence and follow-ups for Valve review. Pair with [HWID Spoofer](/products/dota-2-cheats/hwid-spoofer/) when hardware is flagged, or a new account when reputation is burned.',
+      text: 'Some Ricochet bans cannot be reversed. UGC organizes evidence and follow-ups for Activision review. Pair with [HWID Spoofer](/products/mw4-cheats/hwid-spoofer/) when hardware is flagged, or a new account when reputation is burned.',
     },
   ],
   'unlock-all': [
@@ -311,7 +311,7 @@ const utilityBodies: Record<string, ProductPage['body']> = {
     { type: 'h2', text: 'Included with Elite' },
     {
       type: 'p',
-      text: 'Skin Changer ships inside the Elite tier. Buy standalone here if you want cosmetic preview without full combat modules.',
+      text: 'Unlock All ships inside the Elite tier. Buy standalone here if you want cosmetic preview without full combat modules.',
     },
   ],
 };
@@ -324,28 +324,28 @@ const productContent: Record<
     images: slide('gpHeroEsp', 'gpMapHack', 'gpZoomHack'),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
+    systemRequirements: mw4SystemRequirements,
     fullFeatures: [
-      'Player ESP & hero boxes',
-      'Ward & sentry locator',
-      'Jungle camp awareness',
+      'Player ESP & player boxes',
+      'Equipment & sentry locator',
+      'Patrol route awareness',
       'Ability cooldown tracking',
-      'Minimap hack overlay',
+      'Tactical radar overlay',
       'Streamproof overlay mode',
       'Distance readouts',
       'Team color filter',
-      'Rune spawn timers',
-      'Zoom hack',
-      'Turbo preset config',
-      'Ranked preset config',
+      'Killstreak spawn timers',
+      'FOV expander',
+      'Hardpoint preset config',
+      'Multiplayer preset config',
       'Cloud config backup',
       'Patch auto-updater',
     ],
     overview: {
-      title: 'Built around a clear Dota 2 awareness workflow',
+      title: 'Built around a clear Modern Warfare 4 awareness workflow',
       paragraphs: [
-        'Dota 2 Lite focuses on hero ESP, ward locator, rune timers and zoom hack—everything you need to track ganks and map control without script automation. Modules are grouped in the portal so you can tune distance, colors, and stream-proof mode before your first queue.',
-        'Lite is the entry path for ranked and Turbo players who want map awareness with minimal report risk. No Auto Combo, no bots—just readable overlays maintained every patch at dotacheats.com.',
+        'Modern Warfare 4 Lite focuses on player ESP, equipment locator, killstreak timers and FOV expander—everything you need to track flanks and map control without script automation. Modules are grouped in the portal so you can tune distance, colors, and stream-proof mode before your first queue.',
+        'Lite is the entry path for Multiplayer and Warzone players who want map awareness with minimal report risk. No Aimbot assist, no bots—just readable overlays maintained every patch at localhost:4321.',
       ],
     },
   },
@@ -353,12 +353,12 @@ const productContent: Record<
     images: slide('gpScripts', 'gpMapHack', 'gpHeroEsp'),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
+    systemRequirements: mw4SystemRequirements,
     fullFeatures: [
-      'All Lite ESP & map hack modules',
-      'Auto Combo scripts',
-      'Orbwalker',
-      'Smart Cast & Prediction',
+      'All Lite ESP & wallhack modules',
+      'Aimbot assist scripts',
+      'Recoil control',
+      'Smart fire & Prediction',
       'Target Selector',
       'Activator (BKB/Hex/Orchid)',
       'Auto Heal',
@@ -366,17 +366,17 @@ const productContent: Record<
       'Delay Setting tuning',
       'Hero-specific script profiles',
       'Smoke alert integration',
-      'Ranked-safe default presets',
+      'Multiplayer-safe default presets',
       'Lobby test profile',
       'Cloud config backup',
       'Patch auto-updater',
       'Discord operator support',
     ],
     overview: {
-      title: 'Built around a clear Dota 2 scripts workflow',
+      title: 'Built around a clear Modern Warfare 4 scripts workflow',
       paragraphs: [
-        'Dota 2 Pro adds Auto Combo, Orbwalker, Smart Cast and Activator on top of every Lite module. Hero profiles, delay tuning and activation keys live in one scripts tab—tuned for ranked lobbies when you start with portal presets, not max sliders.',
-        'Pro is the most popular tier: enough firepower for ranked and Turbo without Elite slot limits. Target Selector and Activator keep you efficient mid-fight while scripts stay human at default settings.',
+        'Modern Warfare 4 Pro adds Aimbot assist, Recoil control, Smart fire and Activator on top of every Lite module. Hero profiles, delay tuning and activation keys live in one scripts tab—tuned for Multiplayer lobbies when you start with portal presets, not max sliders.',
+        'Pro is the most popular tier: enough firepower for Multiplayer and Warzone without Elite slot limits. Target Selector and Activator keep you efficient mid-fight while scripts stay human at default settings.',
       ],
     },
   },
@@ -384,19 +384,19 @@ const productContent: Record<
     images: slide('gpAutoKill', 'gpFarmBot', 'gpSkinChanger'),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
+    systemRequirements: mw4SystemRequirements,
     fullFeatures: [
       'All Lite + Pro modules',
-      'Auto Farm Bot',
+      'Auto XP Bot',
       'Lane Control AI',
       'Stack timer',
       'Auto Courier Manager',
       'Auto Kill Steal',
-      'Auto Dagon',
-      'Full map hack suite',
+      'Auto Lethal',
+      'Full wallhack suite',
       'Smoke alert system',
       'Vision detector',
-      'Skin Changer (Unlock All)',
+      'Unlock All (Unlock All)',
       'Priority patch queue',
       'Direct dev Discord support',
       'Elite conservative presets',
@@ -405,23 +405,23 @@ const productContent: Record<
       'Private slot access',
     ],
     overview: {
-      title: 'Built around a full Dota 2 operator workflow',
+      title: 'Built around a full Modern Warfare 4 operator workflow',
       paragraphs: [
-        'Dota 2 Elite is the private build with Auto Farm Bot, Auto Kill Steal, Auto Dagon, Skin Changer, full map hack and priority patch delivery. Every Lite and Pro module is included—no caps, no upsells inside the loader.',
-        'Elite slots are limited so patch cycles stay fast and builds stay maintainable. Direct dev support in Discord helps you tune conservative profiles before ranked. Check the status banner on dotacheats.com before purchase.',
+        'Modern Warfare 4 Elite is the private build with Auto XP Bot, Auto Kill Steal, Auto Lethal, Unlock All, full wallhack and priority patch delivery. Every Lite and Pro module is included—no caps, no upsells inside the loader.',
+        'Elite slots are limited so patch cycles stay fast and builds stay maintainable. Direct dev support in Discord helps you tune conservative profiles before Multiplayer. Check the status banner on localhost:4321 before purchase.',
       ],
     },
   },
   'hwid-spoofer': {
     images: slide('gpMapHack', 'gpHeroEsp', 'gpZoomHack'),
     goodToKnow:
-      'Run the compatibility scan in the portal before spoofing. Create a Windows restore point first. Verify identifiers changed after a cold reboot before launching Dota 2.',
+      'Run the compatibility scan in the portal before spoofing. Create a Windows restore point first. Verify identifiers changed after a cold reboot before launching Modern Warfare 4.',
     limitations:
-      'Spoofing does not help account-only VAC cases. Never stack two spoof tools. Shared or work PCs may not be suitable. You accept all risk from driver-level changes.',
+      'Spoofing does not help account-only Ricochet cases. Never stack two spoof tools. Shared or work PCs may not be suitable. You accept all risk from driver-level changes.',
     systemRequirements: [
       { icon: 'reqWindows', text: 'Windows 10 or 11 64-bit with administrator access.' },
       { icon: 'reqRestorePoint', text: 'Ability to create a system restore point before running.' },
-      { icon: 'reqShieldGuide', text: 'Follow the portal setup guide before launching Dota 2 after spoofing.' },
+      { icon: 'reqShieldGuide', text: 'Follow the portal setup guide before launching Modern Warfare 4 after spoofing.' },
       { icon: 'reqWifi', text: 'Stable connection for portal verification tools.' },
     ],
     fullFeatures: [
@@ -439,8 +439,8 @@ const productContent: Record<
     overview: {
       title: 'Built around a clear hardware recovery workflow',
       paragraphs: [
-        'The HWID Spoofer helps Dota 2 players recover when VAC flags PC hardware but the Steam account is still clean. Disk and MAC profile tools ship with a restore-point checklist, compatibility scan, and post-spoof verification steps.',
-        'Use this path when fresh accounts fail instantly on one machine but work elsewhere—not for account-only VAC cases. After spoof, load a conservative cheat profile from dotacheats.com before queuing ranked.',
+        'The HWID Spoofer helps Modern Warfare 4 players recover when Ricochet flags PC hardware but the Activision account is still clean. Disk and MAC profile tools ship with a restore-point checklist, compatibility scan, and post-spoof verification steps.',
+        'Use this path when fresh accounts fail instantly on one machine but work elsewhere—not for account-only Ricochet cases. After spoof, load a conservative cheat profile from localhost:4321 before queuing Multiplayer.',
       ],
     },
   },
@@ -449,9 +449,9 @@ const productContent: Record<
     goodToKnow:
       'Gather order email, platform account details and restriction screenshots before opening a ticket. UGC structures appeals—it does not bypass platform review.',
     limitations:
-      'UGC does not guarantee account restoration. Results vary by case type. Permanent VAC bans may require a new account path instead of appeal.',
+      'UGC does not guarantee account restoration. Results vary by case type. Permanent Ricochet bans may require a new account path instead of appeal.',
     systemRequirements: [
-      { icon: 'reqMailOrder', text: 'Order email used at checkout on dotacheats.com or at checkout on dotacheats.com.' },
+      { icon: 'reqMailOrder', text: 'Order email used at checkout on localhost:4321 or at checkout on localhost:4321.' },
       { icon: 'reqShieldAccount', text: 'Account details and ban or restriction notification if available.' },
       { icon: 'reqWifiPortal', text: 'Internet access for Discord support and case dashboard.' },
     ],
@@ -479,22 +479,22 @@ const productContent: Record<
     goodToKnow:
       'Unlock All previews cosmetics locally on your client. Other players in your lobby see your real inventory—not preview skins. Included with Elite tier.',
     limitations:
-      'Local preview only—does not modify Steam inventory or store state. Other players cannot see previewed arcanas or sets.',
-    systemRequirements: dotaSystemRequirements,
+      'Local preview only—does not modify Battle.net inventory or store state. Other players cannot see previewed blueprints or sets.',
+    systemRequirements: mw4SystemRequirements,
     fullFeatures: [
-      'Hero skin swap',
+      'Weapon camo swap',
       'Arcana & immortal preview',
       'Weapon & effect customizer',
       'Loading screen editor',
       'Cursor & HUD theme',
-      'Ward & courier replacer',
+      'Equipment & loadout replacer',
       'Favorites list',
       'Loadout export',
     ],
     overview: {
       title: 'Built around a local cosmetic preview workflow',
       paragraphs: [
-        'Unlock All lets you browse hero arcanas, immortals and exclusive sets locally in Dota 2—searchable catalog, favorites, and loadout export without modifying live Steam purchases.',
+        'Unlock All lets you browse weapon blueprints, operator skins and exclusive sets locally in Modern Warfare 4—searchable catalog, favorites, and loadout export without modifying live store purchases.',
         'Cosmetics display on your client for testing and content creation. Other players see your actual inventory, not preview skins. Included free with Elite; available standalone for cosmetic preview without combat modules.',
       ],
     },
@@ -505,7 +505,7 @@ function buildTierPages(): ProductPage[] {
   return t.cheats.items.map((cheat) => {
     const slug = slugFromHref(cheat.href);
     const content = productContent[slug];
-    const displayName = cheat.name === 'Lite' ? 'Dota 2 Lite' : cheat.name === 'Pro' ? 'Dota 2 Pro' : 'Dota 2 Elite';
+    const displayName = cheat.name === 'Lite' ? 'Modern Warfare 4 Lite' : cheat.name === 'Pro' ? 'Modern Warfare 4 Pro' : 'Modern Warfare 4 Elite';
     return {
       slug,
       kind: 'tier',
@@ -600,6 +600,6 @@ export const productHub = {
   path: productBase,
   title: t.products.title,
   subtitle: t.products.subtitle,
-  description: 'Elite dota cheats, HWID spoofer, UGC recovery, and cosmetic utilities for Dota 2 on PC.',
-  buyUrl: checkoutPath('dota2'),
+  description: 'Elite MW4 cheats, HWID spoofer, UGC recovery, and cosmetic utilities for Modern Warfare 4 on PC.',
+  buyUrl: checkoutPath('mw4'),
 };

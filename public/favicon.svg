@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="DotaCheats">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="MW4 Hacks">
   <defs>
     <linearGradient id="bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#221533"/>
+      <stop stop-color="#2a060e"/>
       <stop offset="1" stop-color="#0A0D10"/>
     </linearGradient>
     <linearGradient id="accent" x1="16" y1="12" x2="48" y2="52" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9654FF"/>
-      <stop offset="1" stop-color="#7F3DEE"/>
+      <stop stop-color="#A61C35"/>
+      <stop offset="1" stop-color="#800020"/>
     </linearGradient>
     <linearGradient id="blade" x1="22" y1="21" x2="40" y2="36" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F5F7FA"/>
-      <stop offset="1" stop-color="#C8B8E8"/>
+      <stop offset="1" stop-color="#E8B8C0"/>
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="16" fill="url(#bg)"/>

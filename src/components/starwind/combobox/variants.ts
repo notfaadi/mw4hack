@@ -17,7 +17,7 @@ export const comboboxContent = tv({
   base: [
     "bg-popover text-popover-foreground z-50 min-w-[8rem] overflow-hidden rounded-md border shadow-md",
     "data-[state=open]:animate-in fade-in zoom-in-95 outline-none",
-    "data-[state=closed]:animate-out data-[state=closed]:fill-mode-forwards fade-out zoom-out-95",
+    "data-[state=closed]:animate-out data-[state=closed]:fill-mode-forequipment fade-out zoom-out-95",
     "data-[side=bottom]:slide-in-from-top-2 data-[side=top]:slide-in-from-bottom-2",
     "data-[side=right]:slide-in-from-left-2 data-[side=left]:slide-in-from-right-2",
     "origin-(--transform-origin) pointer-events-auto fixed isolate w-(--anchor-width) will-change-transform",

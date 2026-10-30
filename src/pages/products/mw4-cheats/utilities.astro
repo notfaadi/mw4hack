@@ -18,11 +18,11 @@ import {
 } from '@/components/starwind/table';
 
 const utilities = productPages.filter((p) => p.kind === 'utility');
-const seo = resolvePageSeo('/products/dota-2-cheats/utilities/');
+const seo = resolvePageSeo('/products/mw4-cheats/utilities/');
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Products', path: productHub.path },
-  { name: 'Compare utilities', path: '/products/dota-2-cheats/utilities/' },
+  { name: 'Compare utilities', path: '/products/mw4-cheats/utilities/' },
 ];
 
 const utilityUseCases: Record<string, string> = {
@@ -37,9 +37,9 @@ const utilityUseCases: Record<string, string> = {
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: 'Compare Dota 2 utilities',
+      name: 'Compare Modern Warfare 4 utilities',
       description: seo.description,
-      url: '/products/dota-2-cheats/utilities/',
+      url: '/products/mw4-cheats/utilities/',
     }),
     breadcrumbSchema(breadcrumbs),
     itemListSchema(
@@ -57,7 +57,7 @@ const utilityUseCases: Record<string, string> = {
       <header class="mt-6 max-w-3xl space-y-3">
         <h1 class="text-3xl font-bold uppercase md:text-4xl">Compare utilities</h1>
         <p class="text-lg text-muted-foreground">
-          HWID Spoofer, UGC, and Skin Changer solve different problems. Match the tool to your situation before checkout.
+          HWID Spoofer, UGC, and Unlock All solve different problems. Match the tool to your situation before checkout.
         </p>
       </header>
 

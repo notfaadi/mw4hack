@@ -108,6 +108,7 @@ function bootSite() {
   initInPageScroll();
   initSkipLink();
   initThemeMetaColor();
+  void import('./hero-embla.ts').then(({ setupHeroEmbla }) => setupHeroEmbla());
 }
 
 if (document.readyState === 'loading') {

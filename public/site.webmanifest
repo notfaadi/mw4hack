@@ -1,12 +1,12 @@
 {
-  "name": "DotaCheats",
-  "short_name": "DotaCheats",
-  "description": "Dota 2 cheats with scripts, map hack, zoom hack and skin changer for PC.",
+  "name": "MW4 Hacks",
+  "short_name": "MW4 Hacks",
+  "description": "Modern Warfare 4 cheats with aimbot, wallhack, ESP and unlock tools for PC.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0a0d10",
-  "theme_color": "#7f3dee",
+  "theme_color": "#800020",
   "lang": "en-US",
   "icons": [
     {
