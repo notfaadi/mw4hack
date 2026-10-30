@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
+  output: 'static',
   site: 'http://localhost:4321',
   trailingSlash: 'always',
   redirects: {

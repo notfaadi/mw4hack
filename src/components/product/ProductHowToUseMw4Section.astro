@@ -13,7 +13,7 @@ const guide = mw4HowToUse;
 
 <section class="product-how-to-use pb-16 pt-2 md:pb-24 md:pt-4" aria-labelledby="product-how-to-use-trigger">
   <div class="mx-auto max-w-6xl px-5">
-    <Accordion type="single" collapsible class="product-how-to-use__accordion w-full">
+    <Accordion type="single" collapsible class="product-how-to-use__accordion w-full" data-how-to-accordion>
       <AccordionItem value="how-to-use-mw4" class="product-how-to-use__item border-0">
         <AccordionTrigger
           id="product-how-to-use-trigger"
@@ -55,9 +55,13 @@ const guide = mw4HowToUse;
               ))
             }
 
-            <p class="mt-8 border-t border-border/70 pt-6 text-sm font-medium leading-relaxed text-foreground/90 md:text-[0.9375rem]">
-              {guide.outro}
-            </p>
+            {
+              guide.closing ? (
+                <p class="mt-8 border-t border-border/70 pt-6 text-sm leading-relaxed text-muted-foreground md:text-[0.9375rem] md:leading-7">
+                  {guide.closing}
+                </p>
+              ) : null
+            }
           </div>
         </AccordionContent>
       </AccordionItem>

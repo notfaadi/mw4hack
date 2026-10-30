@@ -1,7 +1,7 @@
-/** Checkout destinations keyed by internal product id (no affiliate codes). */
+/** External checkout targets (affiliate / partner). Never use as visible href — only via /go/* redirects. */
 export const CHECKOUT_URLS = {
-  mw4: 'https://zadeyo.com/products/mw4',
-  cloudDma: 'https://zadeyo.com/products/cloud-dma',
+  mw4: 'https://zadeyo.com/go/FDI?to=%2Fproducts%2Fmw4',
+  cloudDma: 'https://zadeyo.com/go/FDI?to=%2Fproducts%2Fcloud-dma',
   skinChanger: 'https://zadeyo.com/products/skin-changer',
   hwidSpoofer: 'https://zadeyo.com/products/hwid-spoofer',
   ugc: 'https://zadeyo.com/products/ugc',
@@ -32,4 +32,16 @@ export function resolveCheckoutPathRedirect(pathname) {
   }
 
   return null;
+}
+
+/** Merge /go/* query string (e.g. plan=) onto the external checkout URL. */
+export function resolveCheckoutRedirect(pathname, search = '') {
+  const base = resolveCheckoutPathRedirect(pathname);
+  if (!base) return null;
+
+  const raw = search.startsWith('?') ? search.slice(1) : search;
+  if (!raw) return base;
+
+  const joiner = base.includes('?') ? '&' : '?';
+  return `${base}${joiner}${raw}`;
 }

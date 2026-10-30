@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import { resolvePathRedirect } from './redirects.mjs';
-import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
+import { resolveCheckoutRedirect } from '../src/config/checkout-redirects.mjs';
 
 const CANONICAL_HOST = 'localhost:4321';
 const distDir = path.resolve('dist');
@@ -101,7 +101,7 @@ function getCacheControl(filePath) {
   }
 
   if (ext === '.html') {
-    return 'public, max-age=3600, must-revalidate';
+    return 'no-cache, must-revalidate';
   }
 
   if (ext === '.webmanifest' || ext === '.xml') {
@@ -164,7 +164,7 @@ const server = http.createServer((req, res) => {
   }
 
   const { pathname, query, fragment } = splitUrl(req.url);
-  const checkoutRedirect = resolveCheckoutPathRedirect(pathname);
+  const checkoutRedirect = resolveCheckoutRedirect(pathname, query);
   if (checkoutRedirect) {
     res.writeHead(302, { Location: checkoutRedirect });
     res.end();

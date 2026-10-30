@@ -1,8 +1,9 @@
 import { defineMiddleware } from 'astro:middleware';
-import { resolveCheckoutPathRedirect } from './config/checkout-redirects.mjs';
+import { resolveCheckoutRedirect } from './config/checkout-redirects.mjs';
 
 export const onRequest = defineMiddleware((context, next) => {
-  const destination = resolveCheckoutPathRedirect(new URL(context.request.url).pathname);
+  const requestUrl = new URL(context.request.url);
+  const destination = resolveCheckoutRedirect(requestUrl.pathname, requestUrl.search);
   if (destination) {
     return context.redirect(destination, 302);
   }

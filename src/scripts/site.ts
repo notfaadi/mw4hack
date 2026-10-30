@@ -1,17 +1,5 @@
 function initFonts() {
-  const root = document.documentElement;
-
-  const markReady = () => {
-    root.classList.remove('fonts-pending');
-    root.classList.add('fonts-ready');
-  };
-
-  if (!document.fonts?.ready) {
-    markReady();
-    return;
-  }
-
-  document.fonts.ready.then(markReady).catch(markReady);
+  document.documentElement.classList.add('fonts-ready');
 }
 
 function initNavHighlight() {
@@ -103,6 +91,9 @@ function initThemeMetaColor() {
 
 function bootSite() {
   initFonts();
+  void import('./persist-static-ui.ts').then(({ initHowToAccordionPersistence }) => {
+    initHowToAccordionPersistence();
+  });
   initFaqFilters();
   initNavHighlight();
   initInPageScroll();

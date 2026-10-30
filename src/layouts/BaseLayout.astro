@@ -52,17 +52,17 @@ const robotsContent = noindex
 ---
 
 <!doctype html>
-<html lang="en" class="dark fonts-pending">
+<html lang="en" class="dark" translate="no">
   <head>
     <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
     <script is:inline>
       (function () {
         try {
           var stored = localStorage.getItem('colorTheme') || localStorage.getItem('starwind-theme');
           if (stored === 'light') document.documentElement.classList.remove('dark');
-          else if (stored === 'dark') document.documentElement.classList.add('dark');
+          else document.documentElement.classList.add('dark');
         } catch (e) {}
-        document.documentElement.classList.add('fonts-pending');
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -144,17 +144,14 @@ const robotsContent = noindex
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600&display=optional"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600&display=optional"
-        rel="stylesheet"
-      />
-    </noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     {jsonLd && <JsonLd data={jsonLd} />}
     <slot name="head" />

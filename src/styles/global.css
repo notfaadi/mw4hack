@@ -131,10 +131,6 @@ html::-webkit-scrollbar,
   }
 }
 
-html.fonts-pending body {
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-
 /* Lucide icons via Icon.astro — white in dark mode; muted + primary accents in light */
 .icon-app {
   color: #ffffff;

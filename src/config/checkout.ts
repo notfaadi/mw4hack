@@ -31,18 +31,19 @@ export function checkoutPath(product: CheckoutProduct = 'mw4'): string {
 /** Default product checkout redirect (replaces legacy Discord CTAs). */
 export const PRIMARY_CHECKOUT_PATH = checkoutPath('mw4');
 
-/** Modern Warfare 4 Elite — external checkout (Buy now only for this tier). */
-export const ELITE_BUY_URL = 'https://zadeyo.com/go/FDI?to=%2Fproducts%2Fmw4';
+/** @deprecated Use checkoutPath('mw4') in UI; affiliate URL lives in checkout-redirects.mjs */
+export const ELITE_BUY_URL = CHECKOUT.mw4;
 
-export const CLOUD_DMA_BUY_URL = 'https://zadeyo.com/go/FDI?to=%2Fproducts%2Fcloud-dma';
+/** @deprecated Use checkoutPath('cloudDma') in UI */
+export const CLOUD_DMA_BUY_URL = CHECKOUT.cloudDma;
 
 /** Map internal product slugs to checkout redirect paths. */
 export function checkoutForSlug(slug: string): string {
   switch (slug) {
     case 'elite':
-      return ELITE_BUY_URL;
+      return checkoutPath('mw4');
     case 'cloud-dma':
-      return CLOUD_DMA_BUY_URL;
+      return checkoutPath('cloudDma');
     case 'skin-changer':
     case 'unlock-all':
       return checkoutPath('skinChanger');
